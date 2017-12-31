@@ -1,0 +1,55 @@
+{   "name": "cmdb-rtm"
+  , "description": "CMDB - Real Time Task Progress Monitoring"
+  , "main": "server.js"
+  , "moduleType": [
+        "amd"
+      , "globals"
+    ]
+  , "keywords": [
+        "rtm"
+      , "real time hosting monitoring"
+      , "real time monitoring"
+      , "real time hosting"
+      , "real time charts"
+      , "real time graphs"
+      , "real time graphics"
+      , "real time visalization"
+    ]
+  , "authors": [
+      "tbaltrushaitis@github.com"
+    ]
+  , "license": "MIT"
+  , "homepage": "https://github.com/tbaltrushaitis"
+  , "private": true
+  , "ignore": [
+        "**/.*"
+      , "etc"
+      , "node_modules"
+      , "bower_modules"
+      , "test"
+      , "tests"
+      , "build"
+    ]
+  , "dependencies": {
+        "admin-lte":    "~2.3.2"
+      , "animate.css":  "~3.5.2"
+      , "backbone":     "~1.3.3"
+      , "bootstrap":    "~3.3.7"
+      , "font-awesome": "~4.7.0"
+      , "ionicons":     "~4.0.0-11"
+      , "jquery":       "~2.2.4"
+      , "jquery-ui":    "~1.12.1"
+      , "jquery-tmpl":  "*"
+      , "lodash":       "^4.17.4"
+      , "noty":         "~2.3.11"
+      , "requirejs":    "~2.3.5"
+      , "socket.io":    "~2.0.4"
+      , "text":         "~2.0.15"
+      , "use-amd":      "~0.4.0"
+      , "wdt-loading":  "~0.1.0"
+    }
+  , "dependenciesDisabled": {
+      "underscore":   "~1.8.3"
+    }
+  , "devDependencies": {}
+}
