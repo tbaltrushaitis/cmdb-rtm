@@ -2,6 +2,8 @@
 
 Plugin for CMDB application that work with data in real time.
 
+![Real Time Jobs Progress View](assets/img/cmdb-real-time-jobs-progress-view-001.png)
+
 `cmdb` `real-time` `monitoring`
 
 ---
