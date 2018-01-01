@@ -1,24 +1,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>CMDB-RTM: Realtime Monitoring of Job's Progress</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>CMDB-RTM: Realtime Monitoring of Job's Progress</title>
 
-    <!--/  Favicon  /-->
-    <link href="assets/img/favicon.ico" type="image/x-icon" rel="icon" />
-    <link href="assets/img/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+  <!--/  Favicon  /-->
+  <link href="assets/img/favicon.ico" type="image/x-icon" rel="icon" />
+  <link href="assets/img/favicon.ico" type="image/x-icon" rel="shortcut icon" />
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="assets/css/animate.min.css" rel="stylesheet" />
-    <link href="assets/css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 
-    <script type="text/javascript" src="assets/js/socket.io.js"></script>
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script> -->
-    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/underscore.js"></script>
-    <script type="text/javascript" src="assets/js/progress.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script> -->
+  <script type="text/javascript" src="assets/js/socket.io.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/underscore.js"></script>
+  <script type="text/javascript" src="assets/js/progress.js"></script>
 </head>
 
 <body>
@@ -71,10 +71,12 @@
       });
 
       ioClient.on('message', function (job) {
+        console.log('ioClient RECV: message');
         $('#template').progressBar(job);
       });
 
       ioClient.on('progress', function (job) {
+        console.log('ioClient RECV: progress');
         $('#template').progressBar(job);
       });
 
