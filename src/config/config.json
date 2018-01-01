@@ -1,0 +1,24 @@
+{
+  "app": {
+      "name": "cmdb-rtm"
+    , "domain": "cmdb-rtm"
+    , "host": "localhost"
+    , "port": 8084
+    , "family": "IPv4"
+  }
+, "api": {
+    "name": "cmdb-api"
+  , "authKey": "some_key_here"
+  , "defaultUrl": "https://cmdb-api"
+  }
+, "mods": {
+    "defs": {
+      "nameLen": 15
+    }
+  }
+, "iopts": {
+      "showHidden": false
+    , "depth": 5
+    , "colors": true
+  }
+}
