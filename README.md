@@ -39,12 +39,14 @@ $ npm start
 
 ## Change log ##
 
-**v0.0.1:**
-* Added bower.json
-* Added package.json
-* Added gulpfile.js
+*v0.0.1:*
 
-**v0.0.0:**
-* Initial release
+ * Added bower.json
+ * Added package.json
+ * Added gulpfile.js
+
+*v0.0.0:*
+
+ * Initial release
 
 ---
