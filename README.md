@@ -2,6 +2,8 @@
 
 Plugin for CMDB application that work with data in real time.
 
+![Real Time Jobs Progress View](assets/img/cmdb-real-time-jobs-progress-view-001.png)
+
 `cmdb` `real-time` `monitoring`
 
 ---
@@ -26,46 +28,34 @@ Plugin for CMDB application that work with data in real time.
 ---
 
 ## Getting started ##
-* git clone https://bitbucket.org/devopscrew/cmdb-rtm
-* cd cmdb-rtm
-* git checkout dev
-* git pull
-* bower i
-* npm i
-* gulp
 
----
-
-## Required configuration ##
-:TODO
-
----
-
-### URL building rules ###
-
----
-
-## Routes/API End Points ##
-  POST    /
+```
+$ git clone https://bitbucket.org/devopscrew/cmdb-rtm
+$ cd cmdb-rtm
+$ cp -pr src/* ./
+$ npm i
+$ bower i
+$ sudo chmod a+x app/bin/*.sh
+$ npm start
+```
 
 ---
 
 ## Todo List ##
 
-- ~~Create gulpfile.js scenario~~ (Done v0.0.2)
-- ~~Initial release~~ (Done v0.0.0)
+ - ~~Create gulpfile.js scenario~~ (Done v0.0.1)
+ - ~~Initial release~~ (Done v0.0.0)
 
 ---
 
 ## Change log ##
 
-**v0.0.2:**
-- Created gulpfile.js tasks scenario for fast application deployment and configuration.
-
 **v0.0.1:**
-- Added bower.json file
-- Added package.json data
-- Created directories tree structure
+* Added bower.json
+* Added package.json
+* Added gulpfile.js
 
 **v0.0.0:**
-- Initial release
+* Initial release
+
+---

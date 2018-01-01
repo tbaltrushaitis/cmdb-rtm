@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>CMDB-RTM: Realtime Monitoring of Job's Progress</title>
+
+  <!--/  Favicon  /-->
+  <link href="assets/img/favicon.ico" type="image/x-icon" rel="icon" />
+  <link href="assets/img/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script> -->
+  <script type="text/javascript" src="assets/js/socket.io.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/underscore.js"></script>
+  <script type="text/javascript" src="assets/js/progress.js"></script>
+</head>
+
+<body>
+
+  <div id="template">
+    <div class="progress progress-striped active progress-container animated">
+      <div class="progress-bar progress-bar-primary">
+        <span class="progress-text">
+          <span class="progress-task"></span>
+          <span class="progress-d">-</span>
+          <span class="progress-data">?%</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div id="container" class="container">
+
+    <section id="tasks-monitor" class="section content">
+    </section>
+
+    <section id="tasks-stats" class="section content">
+      <div id="tasks-legend" class="nav navbar navbar-right">
+        <span id="tasks-total"></span>
+        <span id="tasks-fast"></span>
+        <span id="tasks-norm"></span>
+        <span id="tasks-slow"></span>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    $(function () {
+      // var ioClient = new io.Socket()
+      var ioClient = io()
+        , aSpds    = ['fast', 'norm', 'slow']
+        , aStats   = _.object(aSpds, [0, 0, 0])
+      ;
+
+      console.log('aStats = ', typeof(aStats), aStats);
+      console.log('ioClient = ', typeof(ioClient), ioClient);
+
+      ioClient.on('connect', function () {
+        console.info('ioSocket client connected to ioServer!');
+      });
+
+      ioClient.on('disconnect', function () {
+        console.warn('ioSocket client disconnected from ioServer!');
+      });
+
+      ioClient.on('message', function (job) {
+        console.log('ioClient RECV: message');
+        $('#template').progressBar(job);
+      });
+
+      ioClient.on('progress', function (job) {
+        console.log('ioClient RECV: progress');
+        $('#template').progressBar(job);
+      });
+
+      ioClient.connect();
+
+    });
+  </script>
+
+</body>
+</html>
