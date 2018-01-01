@@ -29,18 +29,15 @@ Plugin for CMDB application that work with data in real time.
 
 ## Getting started ##
 
-* git clone https://bitbucket.org/devopscrew/cmdb-rtm
-* cd cmdb-rtm
-* git checkout dev
-* git pull
-* npm i
-* bower i
-* gulp
-
----
-
-## Required configuration ##
-:TODO
+```
+$ git clone https://bitbucket.org/devopscrew/cmdb-rtm
+$ cd cmdb-rtm
+$ cp -pr src/* ./
+$ npm i
+$ bower i
+$ sudo chmod a+x app/bin/*.sh
+$ npm start
+```
 
 ---
 
