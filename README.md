@@ -32,8 +32,7 @@ $ npm start
 
 ## Todo List ##
 
- - ~~Create gulpfile.js scenario~~ (Done v0.0.1)
- - ~~Initial release~~ (Done v0.0.0)
+ - ~~Example Done Item~~ (Done v0.0.0)
 
 ---
 
@@ -41,12 +40,11 @@ $ npm start
 
 *v0.0.1:*
 
- * Added bower.json
- * Added package.json
- * Added gulpfile.js
 
 *v0.0.0:*
 
- * Initial release
+ * Init of repository
+ * Makefile
+ * package.json
 
 ---
