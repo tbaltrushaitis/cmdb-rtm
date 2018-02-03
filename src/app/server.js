@@ -96,7 +96,6 @@ const Job = class Job extends EE {
 };
 
 
-
 /**
  * MIDDLEWARES
  */
@@ -141,8 +140,6 @@ ioServer.on('connection', function (client) {
 
 });
 
-
-
 let optsStatic = {
     dotfiles:   'ignore'
   , etag:       true
@@ -167,18 +164,18 @@ app.post('/spawn', function (req, res) {
     _.each(connections, function (connection) {
 
       connection.send({
-          "id": id
+          "id": idq
         , "progress": progress
         , "speed":    speed
         , "conn": {
-            "domain":       connection.domain
-          , "connected":    connection.connected
-          , "handshaked":   connection.handshaked
-          , "connections":  connection.connections
-          , "options":      connection.options
-          , "_heartbeats":  connection._heartbeats
+            "domain":      connection.domain
+          , "connected":   connection.connected
+          , "handshaked":  connection.handshaked
+          , "connections": connection.connections
+          , "options":     connection.options
+          , "_heartbeats": connection._heartbeats
           , "_maxListeners": connection._maxListeners
-          , "sessionId":    connection.sessionId
+          , "sessionId":   connection.sessionId
         }
       })
     });
@@ -238,10 +235,10 @@ app.use(function (err, req, res, next) {
 
   //  Return json
   res.send({
-    status: 'error',
-    code: err.code,
-    errno: err.errno,
-    message: err.message
+      status: 'error'
+    , code: err.code
+    , errno: err.errno
+    , message: err.message
   });
 
 });
@@ -267,7 +264,7 @@ process.on('SIGINT', function () {
 
 
 /**
- * EXPOSE
+ * EXPOSES
  * @public
  */
 

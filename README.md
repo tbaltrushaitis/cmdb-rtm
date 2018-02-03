@@ -1,25 +1,37 @@
 # CMDB-rtm #
 
-Plugin for CMDB application that work with data in real time.
+Plugin for CMDB application that visualize data in real time.
 
 ![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
 
-`cmdb` `real-time` `monitoring`
+`cmdb` `real-time` `monitoring` `data visualization`
 
 ---
 
-## Dependencies ##
-- [animate.css](http://daneden.github.io/animate.css/) v3.5.2 - A cross-browser library of CSS animations.
-- [Bootstrap](http://getbootstrap.com) v3.3.7 - HTML, CSS, and JS framework
-- [jQuery](http://jquery.com/) v2.2.4 - JavaScript Library
-- [Underscore.js](http://underscorejs.org) v1.8.3 - JavaScript library that provides a whole mess of useful functional programming helpers.
+## :computer: Live Demo ##
+See it in action :point_right: [Real-time Tasks Progress Visualization](http://bit.ly/cmdb-rtm)
+
+### :name_badge: Badges ###
+
+[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cmdb-rtm.svg)](https://github.com/tbaltrushaitis/cmdb-rtm/graphs/contributors)
 
 ---
 
-## Getting started ##
+## :octocat: Credits ##
 
-```
-$ git clone https://bitbucket.org/devopscrew/cmdb-rtm
+ Scope | Role | Name | Version | Description
+:-----:|:----:|:-----|:-------:|:------------
+ Front | Library | [animate.css](http://daneden.github.io/animate.css/) | 3.5.2 | A cross-browser library of CSS animations
+ Front | Framework | [Bootstrap](http://getbootstrap.com) | 3.3.7 | HTML, CSS, and JS framework
+ Front | Library | [jQuery](http://jquery.com/) | 3.3.1 | JavaScript Library
+ Front | Library | [Lodash](https://lodash.com/docs/4.17.4) | 4.17.4 | A modern JavaScript utility library delivering modularity, performance & extras.
+
+---
+
+## :runner: Getting started ##
+
+```shell
+$ git clone https://github.com/tbaltrushaitis/cmdb-rtm
 $ cd cmdb-rtm
 $ cp -pr src/* ./
 $ npm i
@@ -30,21 +42,31 @@ $ npm start
 
 ---
 
-## Todo List ##
+## :pushpin: Todo List ##
 
  - ~~Example Done Item~~ (Done v0.0.0)
 
 ---
 
-## Change log ##
+## :memo: Changelog ##
 
-*v0.0.1:*
+**v0.0.1:**
 
-
-*v0.0.0:*
-
- * Init of repository
- * Makefile
- * package.json
+ - [x] Init of repository
+ - [x] Makefile
+ - [x] package.json
 
 ---
+
+### :link: More Info ###
+
+ - [GitHub / Basic writing and formatting syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
+ - [BitBucket Markdown Howto](https://bitbucket.org/tutorials/markdowndemo)
+ - [Creating an Automated Build](https://docs.docker.com/docker-hub/builds/)
+ - [Linking containers](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks.md)
+ - [Cross-host linking containers](https://docs.docker.com/engine/admin/ambassador_pattern_linking.md)
+ - [Linking containers](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks.md)
+
+---
+
+:scorpius:
