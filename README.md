@@ -26,11 +26,6 @@ In terminal:
 $  REPO="cmdb-rtm" \
 && git clone "https://github.com/tbaltrushaitis/${REPO}" \
 && cd ${REPO} \
-&& cp -pr src/* ./ \
-&& sleep 1 \
-&& sudo chmod a+x app/bin/*.sh \
-&& npm i \
-&& bower i \
 && make \
 && npm start ;
 ```
@@ -39,7 +34,8 @@ $  REPO="cmdb-rtm" \
 
 ![Run Application Server](assets/img/npm-start-001.png)
 
-Then navigate your agent to `http://your-local.domain:8084/`.
+Then navigate your agent to `http://your-local.domain:8084/`
+
  - [x] You should see visualized rtm-data:
 
 ![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
