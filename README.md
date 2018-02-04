@@ -20,6 +20,8 @@ All data about status will be shown as HTML elements with some (or any) animatio
 
 ## :runner: Getting started ##
 
+In terminal:
+
 ```shell
 $  REPO="cmdb-rtm" \
 && git clone "https://github.com/tbaltrushaitis/${REPO}" \
@@ -32,6 +34,19 @@ $  REPO="cmdb-rtm" \
 && make \
 && npm start ;
 ```
+
+ - [x] It might looks like:
+
+![Run Application Server](assets/img/npm-start-001.png)
+
+Then navigate your agent to `http://your-local.domain:8084/`.
+ - [x] You should see visualized rtm-data:
+
+![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
+
+ - [x] And in server console:
+
+![Run Application Server](assets/img/user-connected-001.png)
 
 ---
 
@@ -48,7 +63,6 @@ $  REPO="cmdb-rtm" \
 
 ---
 
-![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
 
 ## :pushpin: Todo List ##
 
