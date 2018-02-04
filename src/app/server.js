@@ -164,7 +164,7 @@ app.post('/spawn', function (req, res) {
     _.each(connections, function (connection) {
 
       connection.send({
-          "id": idq
+          "id": id
         , "progress": progress
         , "speed":    speed
         , "conn": {

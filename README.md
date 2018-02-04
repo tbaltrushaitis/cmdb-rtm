@@ -9,11 +9,10 @@ Real-time Tasks Progress Visualization
 ---
 
 ## :computer: Live Demo ##
-Try to open this [link](http://bit.ly/cmdb-rtm) :point_left: in several tabs of your current browsers
- - [ ] Or **better** in different browsers
- - [ ] Or **best** - use different devices to try from
+Try to open this [link](http://bit.ly/cmdb-rtm) :point_left: in **several tabs** of your current browser
 
-![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
+ - [ ] Or better in **different browsers**
+ - [ ] Or best - use **different devices** to try from
 
 All data about status will be shown as HTML elements with some (or any) animations run on all devices **simultaneously**
 
@@ -26,7 +25,8 @@ $  REPO="cmdb-rtm" \
 && git clone "https://github.com/tbaltrushaitis/${REPO}" \
 && cd ${REPO} \
 && cp -pr src/* ./ \
-&& sudo chmod a+x "app/bin/*.sh" \
+&& sleep 1 \
+&& sudo chmod a+x app/bin/*.sh \
 && npm i \
 && bower i \
 && make \
@@ -44,9 +44,11 @@ $  REPO="cmdb-rtm" \
  Front | Library | [jQuery](http://jquery.com/) | 3.3.1 | JavaScript Library
  Front | Library | [Lodash](https://lodash.com/docs/4.17.4) | 4.17.4 | A modern JavaScript utility library delivering modularity, performance & extras.
 
+[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cmdb-rtm.svg)](https://github.com/tbaltrushaitis/cmdb-rtm/graphs/contributors)
+
 ---
 
-[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cmdb-rtm.svg)](https://github.com/tbaltrushaitis/cmdb-rtm/graphs/contributors)
+![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
 
 ## :pushpin: Todo List ##
 
