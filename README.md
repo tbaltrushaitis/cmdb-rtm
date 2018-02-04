@@ -1,19 +1,37 @@
 # CMDB-rtm #
 
-Plugin for CMDB application that visualize data in real time.
+Real-time Tasks Progress Visualization
 
-![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
+![Real Time Jobs Progress View](assets/img/cmdb-rtm-poc-4-windows.gif)
 
 `cmdb` `real-time` `monitoring` `data visualization`
 
 ---
 
 ## :computer: Live Demo ##
-See it in action :point_right: [Real-time Tasks Progress Visualization](http://bit.ly/cmdb-rtm)
+Try to open this [link](http://bit.ly/cmdb-rtm) :point_left: in several tabs of your current browsers
+ - [ ] Or **better** in different browsers
+ - [ ] Or **best** - use different devices to try from
 
-### :name_badge: Badges ###
+![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
 
-[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cmdb-rtm.svg)](https://github.com/tbaltrushaitis/cmdb-rtm/graphs/contributors)
+All data about status will be shown as HTML elements with some (or any) animations run on all devices **simultaneously**
+
+---
+
+## :runner: Getting started ##
+
+```shell
+$  REPO="cmdb-rtm" \
+&& git clone "https://github.com/tbaltrushaitis/${REPO}" \
+&& cd ${REPO} \
+&& cp -pr src/* ./ \
+&& sudo chmod a+x "app/bin/*.sh" \
+&& npm i \
+&& bower i \
+&& make \
+&& npm start ;
+```
 
 ---
 
@@ -28,23 +46,11 @@ See it in action :point_right: [Real-time Tasks Progress Visualization](http://b
 
 ---
 
-## :runner: Getting started ##
-
-```shell
-$ git clone https://github.com/tbaltrushaitis/cmdb-rtm
-$ cd cmdb-rtm
-$ cp -pr src/* ./
-$ npm i
-$ bower i
-$ sudo chmod a+x app/bin/*.sh
-$ npm start
-```
-
----
+[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cmdb-rtm.svg)](https://github.com/tbaltrushaitis/cmdb-rtm/graphs/contributors)
 
 ## :pushpin: Todo List ##
 
- - ~~Example Done Item~~ (Done v0.0.0)
+ - [ ] ~~Example Done Item~~ (Done v0.0.0)
 
 ---
 
@@ -52,9 +58,9 @@ $ npm start
 
 **v0.0.1:**
 
- - [x] Init of repository
- - [x] Makefile
- - [x] package.json
+ - [x] Repository Init
+ - [x] + bower.json
+ - [x] + Makefile
 
 ---
 
