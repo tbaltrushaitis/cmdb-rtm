@@ -10,13 +10,9 @@
 ##  ------------------------------------------------------------------------  ##
 
 APP_NAME := cmdb-rtm
-
-REPO_HOST := https://bitbucket.org
-REPO_USER := devopscrew
-REPO_URL := $(shell git ls-remote --get-url)
+APP_REPO := $(shell git ls-remote --get-url)
 GIT_COMMIT := $(shell git rev-list --remove-empty --remotes --max-count=1 --date-order --reverse)
 
-APP_REPO := ${REPO_HOST}/${REPO_USER}/${APP_NAME}.git
 APP_ENV := $(shell cat NODE_ENV)
 CODE_VERSION := $(shell cat ./VERSION)
 APP_BANNER := $(shell cat ./assets/BANNER)
@@ -73,15 +69,19 @@ test: banner state help banner;
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: clone
+.PHONY: fetch clone rights
 
 clone:
 	@  git clone -b ${APP_ENV} ${APP_REPO} \
 	&& cd ${APP_NAME} \
-	&& git pull \
-	&& find . -type f -exec chmod 664 {} \; \
+	&& git pull \;
+
+rights:
+	@  find . -type f -exec chmod 664 {} \; \
 	&& find . -type d -exec chmod 775 {} \; \
 	&& find . -type f -name "*.sh" -exec chmod 755 {} \;
+
+fetch: clone rights;
 
 ##  ------------------------------------------------------------------------  ##
 
@@ -114,22 +114,13 @@ clean-web:
 
 clean-deps:
 	@ rm -rf bower_modules/ \
-		node_modules/;
+					 node_modules/ ;
 
 clean-files:
 	@ rm -rf ${APP_DIRS}  			\
 		bitbucket-pipelines.yml		\
 		codeclimate-config.patch	\
-		_config.yml;
-
-##  ------------------------------------------------------------------------  ##
-
-.PHONY: rights
-
-rights:
-	@ find . -type f -exec chmod 664 {} \;
-	@ find . -type d -exec chmod 775 {} \;
-	@ find . -type f -name "*.sh" -exec chmod a+x {} \;
+		_config.yml ;
 
 ##  ------------------------------------------------------------------------  ##
 

@@ -1,19 +1,48 @@
 # CMDB-rtm #
 
-Plugin for CMDB application that visualize data in real time.
+Real-time Tasks Progress Visualization
 
-![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
+![Real Time Jobs Progress View](assets/img/cmdb-rtm-poc-4-windows.gif)
 
 `cmdb` `real-time` `monitoring` `data visualization`
 
 ---
 
 ## :computer: Live Demo ##
-See it in action :point_right: [Real-time Tasks Progress Visualization](http://bit.ly/cmdb-rtm)
+Try to open this [link](http://bit.ly/cmdb-rtm) :point_left: in **several tabs** of your current browser
 
-### :name_badge: Badges ###
+ - [ ] Or better in **different browsers**
+ - [ ] Or best - use **different devices** to try from
 
-[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cmdb-rtm.svg)](https://github.com/tbaltrushaitis/cmdb-rtm/graphs/contributors)
+All data about status will be shown as HTML elements with some (or any) animations run on all devices **simultaneously**
+
+---
+
+## :runner: Getting started ##
+
+In terminal:
+
+```shell
+$  REPO="cmdb-rtm" \
+&& git clone "https://github.com/tbaltrushaitis/${REPO}" \
+&& cd ${REPO} \
+&& make \
+&& npm start ;
+```
+
+ - [x] It might looks like:
+
+![Run Application Server](assets/img/npm-start-001.png)
+
+Then navigate your agent to `http://your-local.domain:8084/`
+
+ - [x] You should see visualized rtm-data:
+
+![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
+
+ - [x] And in server console:
+
+![Run Application Server](assets/img/user-connected-001.png)
 
 ---
 
@@ -26,25 +55,14 @@ See it in action :point_right: [Real-time Tasks Progress Visualization](http://b
  Front | Library | [jQuery](http://jquery.com/) | 3.3.1 | JavaScript Library
  Front | Library | [Lodash](https://lodash.com/docs/4.17.4) | 4.17.4 | A modern JavaScript utility library delivering modularity, performance & extras.
 
----
-
-## :runner: Getting started ##
-
-```shell
-$ git clone https://github.com/tbaltrushaitis/cmdb-rtm
-$ cd cmdb-rtm
-$ cp -pr src/* ./
-$ npm i
-$ bower i
-$ sudo chmod a+x app/bin/*.sh
-$ npm start
-```
+[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cmdb-rtm.svg)](https://github.com/tbaltrushaitis/cmdb-rtm/graphs/contributors)
 
 ---
+
 
 ## :pushpin: Todo List ##
 
- - ~~Example Done Item~~ (Done v0.0.0)
+ - [ ] ~~Example Done Item~~ (Done v0.0.0)
 
 ---
 
@@ -52,9 +70,9 @@ $ npm start
 
 **v0.0.1:**
 
- - [x] Init of repository
- - [x] Makefile
- - [x] package.json
+ - [x] Repository Init
+ - [x] + bower.json
+ - [x] + Makefile
 
 ---
 
