@@ -1,5 +1,13 @@
 # CMDB-rtm #
 
+[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE)
+[![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm)
+[![devDependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm/dev-status.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm#info=devDependencies)
+[![Build Status](https://img.shields.io/travis/tbaltrushaitis/cmdb-rtm/master.svg)](https://travis-ci.org/tbaltrushaitis/cmdb-rtm)
+[![Coverage Status](http://img.shields.io/coveralls/tbaltrushaitis/cmdb-rtm/master.svg)](https://coveralls.io/r/tbaltrushaitis/cmdb-rtm)
+[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cmdb-rtm.svg)](https://github.com/tbaltrushaitis/cmdb-rtm/graphs/contributors)
+
 Real-time Tasks Progress Visualization
 
 ![Real Time Jobs Progress View](assets/img/cmdb-rtm-poc-4-windows.gif)
@@ -53,12 +61,9 @@ Then navigate your agent to `http://your-local.domain:8084/`
  Front | Library | [animate.css](http://daneden.github.io/animate.css/) | 3.5.2 | A cross-browser library of CSS animations
  Front | Framework | [Bootstrap](http://getbootstrap.com) | 3.3.7 | HTML, CSS, and JS framework
  Front | Library | [jQuery](http://jquery.com/) | 3.3.1 | JavaScript Library
- Front | Library | [Lodash](https://lodash.com/docs/4.17.4) | 4.17.4 | A modern JavaScript utility library delivering modularity, performance & extras.
-
-[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cmdb-rtm.svg)](https://github.com/tbaltrushaitis/cmdb-rtm/graphs/contributors)
+ Front | Library | [Lodash](https://lodash.com/docs/4.17.5) | 4.17.5 | A modern JavaScript utility library delivering modularity, performance & extras.
 
 ---
-
 
 ## :pushpin: Todo List ##
 
@@ -84,6 +89,8 @@ Then navigate your agent to `http://your-local.domain:8084/`
  - [Linking containers](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks.md)
  - [Cross-host linking containers](https://docs.docker.com/engine/admin/ambassador_pattern_linking.md)
  - [Linking containers](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks.md)
+
+> Developed at **November 2016**
 
 ---
 
