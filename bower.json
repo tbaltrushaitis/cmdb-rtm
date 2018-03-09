@@ -41,7 +41,7 @@
       , "jquery":       "~3.3.1"
       , "jquery-ui":    "~1.12.1"
       , "jquery-tmpl":  "*"
-      , "lodash":       "^4.17.4"
+      , "lodash":       "^4.17.5"
       , "noty":         "~2.4.1"
       , "requirejs":    "~2.3.5"
       , "socket.io":    "~2.0.4"
