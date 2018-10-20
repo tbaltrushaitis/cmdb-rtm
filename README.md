@@ -33,8 +33,7 @@ Just `clone` and `make`:
  $ REPO="cmdb-rtm" \
 && git clone "https://github.com/tbaltrushaitis/${REPO}" \
 && cd ${REPO} \
-&& make \
-&& npm start ;
+&& make ;
 ```
 
 then `start` as service:
