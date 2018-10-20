@@ -1,28 +1,25 @@
-# CMDB-rtm #
-
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE)
 [![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm)
 [![devDependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm/dev-status.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm#info=devDependencies)
-[![Build Status](https://img.shields.io/travis/tbaltrushaitis/cmdb-rtm/master.svg)](https://travis-ci.org/tbaltrushaitis/cmdb-rtm)
-[![Coverage Status](http://img.shields.io/coveralls/tbaltrushaitis/cmdb-rtm/master.svg)](https://coveralls.io/r/tbaltrushaitis/cmdb-rtm)
-[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cmdb-rtm.svg)](https://github.com/tbaltrushaitis/cmdb-rtm/graphs/contributors)
 
-Real-time Tasks Progress Visualization
+# CMDB-rtm #
 
 ![Real Time Jobs Progress View](assets/img/cmdb-rtm-poc-4-windows.gif)
+
+Real-time Tasks Progress Visualization
 
 `cmdb` `real-time` `monitoring` `data visualization`
 
 ---
 
 ## :computer: Live Demo ##
-Try to open this [link](http://bit.ly/cmdb-rtm) :point_left: in **several tabs** of your current browser
+Try to open this [link](http://bit.ly/cmdb-rtm) :point_left: in **several tabs** of your current browser or
 
- - [ ] Or better in **different browsers**
- - [ ] Or best - use **different devices** to try from
+ - [ ] better - do it in **different browsers**
+ - [x] best - use **different devices** to try from
 
-All data about status will be shown as HTML elements with some (or any) animations run on all devices **simultaneously**
+All data about status will be shown as HTML elements with some (or any) animations run on all devices `simultaneously`
 
 ---
 
@@ -90,8 +87,8 @@ Then navigate your agent to `http://your-local.domain:8084/`
  - [Cross-host linking containers](https://docs.docker.com/engine/admin/ambassador_pattern_linking.md)
  - [Linking containers](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks.md)
 
-> Developed at **November 2016**
-
 ---
+
+> Developed in **November 2016**
 
 :scorpius:
