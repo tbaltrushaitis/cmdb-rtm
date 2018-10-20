@@ -1,19 +1,19 @@
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE.md)
 [![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm)
 [![devDependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm/dev-status.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm#info=devDependencies)
 
 # CMDB-rtm #
 
-![Real Time Jobs Progress View](assets/img/cmdb-rtm-poc-4-windows.gif)
-
 Real-time Tasks Progress Visualization
+
+![Real Time Jobs Progress View](assets/img/cmdb-rtm-poc-4-windows.gif)
 
 `cmdb` `real-time` `monitoring` `data visualization`
 
 ---
 
-## :computer: Live Demo ##
+## Live Demo ##
 Try to open this [link](http://bit.ly/cmdb-rtm) :point_left: in **several tabs** of your current browser or
 
  - [ ] better - do it in **different browsers**
@@ -23,15 +23,25 @@ All data about status will be shown as HTML elements with some (or any) animatio
 
 ---
 
-## :runner: Getting started ##
+## Getting started ##
 
-In terminal:
+Its simple. Get it done in the way like this piece of shi*, sorry, of course pieces of code below:
+
+Just `clone` and `make`:
 
 ```shell
-$  REPO="cmdb-rtm" \
+ $ REPO="cmdb-rtm" \
 && git clone "https://github.com/tbaltrushaitis/${REPO}" \
 && cd ${REPO} \
 && make \
+&& npm start ;
+```
+
+then `start` as service:
+
+```shell
+ $ REPO="cmdb-rtm" \
+&& cd ${REPO} \
 && npm start ;
 ```
 
@@ -45,13 +55,13 @@ Then navigate your agent to `http://your-local.domain:8084/`
 
 ![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
 
- - [x] And in server console:
+ - [x] Check output of server console:
 
 ![Run Application Server](assets/img/user-connected-001.png)
 
 ---
 
-## :octocat: Credits ##
+## Credits ##
 
  Scope | Role | Name | Version | Description
 :-----:|:----:|:-----|:-------:|:------------
@@ -62,23 +72,20 @@ Then navigate your agent to `http://your-local.domain:8084/`
 
 ---
 
-## :pushpin: Todo List ##
+## Todo List ##
 
- - [ ] ~~Example Done Item~~ (Done v0.0.0)
+ - [ ] Implement business logic within a real ES6 Class instances
+ - [ ] ~~Create repository~~ (Done v0.0.0)
 
----
-
-## :memo: Changelog ##
-
-**v0.0.1:**
-
- - [x] Repository Init
- - [x] + bower.json
- - [x] + Makefile
+See the [Changelog][Changelog] for the history of project changes and improvements.
 
 ---
 
-### :link: More Info ###
+This product is [MIT Licensed][License]
+
+---
+
+### More Info ###
 
  - [GitHub / Basic writing and formatting syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
  - [BitBucket Markdown Howto](https://bitbucket.org/tutorials/markdowndemo)
@@ -92,3 +99,6 @@ Then navigate your agent to `http://your-local.domain:8084/`
 > Developed in **November 2016**
 
 :scorpius:
+
+[Changelog]: CHANGELOG.md
+[License]: LICENSE.md
