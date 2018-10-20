@@ -1,7 +1,7 @@
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE.md)
 [![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm)
 [![devDependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm/dev-status.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm#info=devDependencies)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE.md)
 
 # CMDB-rtm #
 
@@ -48,9 +48,9 @@ then `start` as service:
 
 ![Run Application Server](assets/img/npm-start-001.png)
 
-Then navigate your agent to `http://your-local.domain:8084/`
+Then navigate your agent to :point_right: `http://localhost:8084/`
 
- - [x] You should see visualized rtm-data:
+ - [x] Visualized rtm-data should be **visible** and **animated**:
 
 ![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
 

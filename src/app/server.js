@@ -46,6 +46,7 @@ const Config = require(confBase);
 utin.defaultOptions = Object.assign({}, Config.get('iopts'));
 
 const aSpd = ['norm', 'fast', 'slow'];
+const netErrors = ['EADDRINUSE', 'ECONNREFUSED', 'ECONNRESET'];
 
 
 /**
@@ -87,7 +88,7 @@ const Job = class Job extends EE {
                   });
 
     jobRun.on('close', (code) => {
-      console.log(`child process exited with code [${code}]`);
+      console.log(`[${new Date().toISOString()}] Child process [${utin(this.id)}] exited with code [${utin(code)}]`);
     });
 
   }
@@ -104,7 +105,7 @@ let connections = {}
   , spawnTime   = Math.floor(Math.random() * 4000) + 1500
 ;
 
-console.log(`[${new Date().toISOString()}][${utin(process.memoryUsage().rss)}] spawnTime: [${utin(spawnTime)}]`);
+console.log(`[${new Date().toISOString()}] [${utin(process.memoryUsage().rss)}] spawnTime: [${utin(spawnTime)}]`);
 
 const app = express();
 app.set('port', Config.get('app:port') || process.env.PORT || 8084);
@@ -129,11 +130,22 @@ const appServer = http.createServer(app);
 
 const ioServer = require('socket.io')(appServer);
 ioServer.on('connection', function (client) {
-  console.log(`[${new Date().toISOString()}] User Connected: [${utin(client.conn.id)}] from [${utin(client.conn.remoteAddress)}] [${utin(client.conn.server.clientsCount)}]`);
+  console.log(`[${new Date().toISOString()}] CONNECTED
+  User [${utin(client.conn.id)}]
+  from [${utin(client.conn.remoteAddress)}]
+  [ONLINE:${utin(client.conn.server.clientsCount)}]
+`);
+// by [${utin(Object.keys(client.conn))}]
+
   connections[client.conn.id] = client;
 
   client.on('disconnect', function () {
-    console.log(`[${new Date().toISOString()}] User Disconnected: [${utin(client.conn.id)}] from [${utin(client.conn.remoteAddress)}] [${utin(client.conn.server.clientsCount)}]`);
+    console.log(`[${new Date().toISOString()}] DISCONNECTED
+      User [${utin(client.conn.id)}]
+      From [${utin(client.conn.remoteAddress)}]
+      [ONLINE:${utin(client.conn.server.clientsCount)}]
+    `);
+    // by [${utin(Object.keys(client.conn.server))}]
     delete connections[client.conn.id];
   });
 
@@ -170,8 +182,8 @@ app.post('/spawn', function (req, res) {
             "domain":      connection.domain
           , "connected":   connection.connected
           , "handshaked":  connection.handshaked
-          // , "connections": connection.connections
-          // , "options":     connection.options
+          , "connections": connection.connections
+          , "options":     connection.options
           , "_heartbeats": connection._heartbeats
           , "_maxListeners": connection._maxListeners
           , "sessionId":   connection.sessionId
@@ -190,9 +202,21 @@ app.post('/spawn', function (req, res) {
 
 appServer.listen(app.get('port'), app.get('host'), function (err) {
   if (err) {
-    console.log(`[${new Date().toISOString()}] Error to listen [${app.get('host')}] on port [${utin(app.get('port'))}]: [${utin(err)}]`);
+    console.log(`[${new Date().toISOString()}] Error to listen:
+  at [HOST:${utin(app.get('host'))}]
+  of [NET:${utin(app.get('family'))}]
+  on [PORT:${utin(app.get('port'))}]
+  in [MODE:${utin(app.settings.env)}]
+  messaged: [${utin(err)}]
+`);
   } else {
-    console.log(`[${new Date().toISOString()}] HTTP Server listening at [${utin(appServer.address().address)}] by [${utin(appServer.address().family)}] on PORT [${utin(appServer.address().port)}] in [${utin(app.settings.env)}] MODE`);
+    console.log(`[${new Date().toISOString()}] HTTP Server is listening:
+  at [HOST:${utin(appServer.address().address)}]
+  of [NET:${utin(appServer.address().family)}]
+  on [PORT:${utin(appServer.address().port)}]
+  in [MODE:${utin(app.settings.env)}]
+  and accessible by [URL:${utin(appServer.address())}]
+`);
 
 
     //  ROOT OF ROUTING
@@ -226,8 +250,9 @@ app.use(function (err, req, res, next) {
   const status = err.statusCode || 500;
 
   //  Log exception
-  console.log(`[${new Date().toISOString()}] Application server error [${status}] [${err.message}]:
-    {stack: ${err.stack ? utin(err.stack) : 'N/A'}}`);
+  console.log(`[${new Date().toISOString()}] Application server error [${utin(status)}] [${utin(err.message)}]:
+    stack: ${err.stack ? utin(err.stack) : 'N/A'}
+`);
 
   //  Set server error status
   res.status(status);
@@ -246,14 +271,24 @@ app.use(function (err, req, res, next) {
 process.on('uncaughtException', function (err) {
 
   //  Log exception
-  if (err.message.indexOf('EADDRINUSE') > -1) {
-    console.log(`[${new Date().toISOString()}] Catched [EADDRINUSE]: Shutting down immediately`);
+  // if (err.message.indexOf('EADDRINUSE') > -1) {
+  //   console.log(`[${new Date().toISOString()}] Catched [EADDRINUSE] Error: Shutting down immediately`);
+  //   process.exit();
+  // }
+
+  let isNetError = /[netErrors.join('|')]/.test(err.message);
+  console.log(`isNetError = [${utin(isNetError)}]`);
+  if (isNetError) {
+    console.log(`[${new Date().toISOString()}] Catched [NETWORK] Error: [${utin(err.message)}]`);
+    console.log(`[${new Date().toISOString()}] Shutting down immediately`);
     process.exit();
   }
 
   // console.error(`[${new Date().toISOString()}][${Noty.pref}] UncaughtException [${err.message}]:`, {
-  console.log(`[${new Date().toISOString()}] UncaughtException [${err.message}]:
-    {stack: ${err.stack ? utin(err) : 'N/A'}}`);
+  console.log(`[${new Date().toISOString()}] UncaughtException [${utin(err.message)}]:
+    stack: ${err.stack ? utin(err) : 'N/A'}
+  `);
+  process.exit();
 
 });
 

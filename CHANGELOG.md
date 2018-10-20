@@ -16,25 +16,24 @@ Real-time Tasks Progress Visualization
 
 Magic jump to [README] file
 
-### v0.0.2 (Current): ###
+### [v0.0.2](https://github.com/tbaltrushaitis/cmdb-rtm/tree/master) ([Current]): ###
 - [x] Reorganization of DOCS;
 - [x] Added community standards files;
 
-## dev (Next): ##
+## [dev](https://github.com/tbaltrushaitis/cmdb-rtm/tree/dev) (Next): ##
 - [ ] Merge source code pipeline with latest appropriate .ENV commit;
 
 ### Release (Initial): ###
 
 This is the very first code release.
 
-### [v0.0.1](README.md) ###
-
+### [v0.0.1](https://github.com/tbaltrushaitis/cmdb-rtm/releases/tag/v0.0.1) ###
  - [x] + bower.json
  - [x] + Makefile
+ - [x] + [README.md]
 
 ### [v0.0.0](#) (November 2016) ###
 - [x] Repository Init
-- [x] + [README.md]
 - [x] Initial commit and release
 
 ---
@@ -45,3 +44,4 @@ This is the very first code release.
 
 [readme]: README.md
 [README.md]: README.md
+[current]: README.md
