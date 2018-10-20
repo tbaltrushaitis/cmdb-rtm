@@ -1,7 +1,7 @@
 /*!
  * Project: cmdb-rtm
  * File:    ./config/index.js
- * Author:  Tomas B. <tbaltrushaitis@gmail.com>
+ * Author:  Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License: MIT
  * Created: 2017-12-31
  */

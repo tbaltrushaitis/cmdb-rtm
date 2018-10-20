@@ -1,8 +1,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<!--[if IE 8]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie9"> <![endif]-->
+<!--[if IE 10]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie10"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="noie"> <!--<![endif]-->
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>CMDB-RTM: Realtime Monitoring of Job's Progress</title>
+  <!--/  Basic Page Needs
+  ========================================================================= /-->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta http-equiv="Content-Type"    content="text/html; charset=utf-8" />
+
+  <title>CMDB-RTM :: Realtime Monitoring of Job's Progress</title>
+
+  <!--/  Mobile Specific Metas
+  ========================================================================= /-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!--/  Metas
+  ========================================================================= /-->
+  <meta name="title"         content="CMDB - Real-Time Monitoring" />
+  <meta name="description"   content="Realtime Monitoring of Job's Progress" />
+  <meta name="keywords"      content="rtm, data visualization, real time hosting monitoring, real time monitoring, real time hosting, real time charts, real time graphs, real time graphics, real time visalization" />
+  <meta name="author"        content="Tomas Baltrushaitis" />
+  <meta name="language"      content="en" />
+  <meta name="robots"        content="index, nofollow, noarchive" />
+  <meta name="revisit-after" content="15 days" />
+
+  <!--/  Metas for Crawlers
+  ========================================================================= /-->
+  <meta property="og:type"        content="demo" />
+  <meta property="og:title"       content="CMDB - Real-Time Monitoring" />
+  <meta property="og:description" content="Realtime Monitoring of Job's Progress" />
+  <meta property="og:image"       content="assets/img/placeholder.png" />
+  <meta property="og:site_name"   content="CMDB-RTM Proof of Concept" />
+  <meta property="og:url"         content="/" />
+  <meta property="og:see_also"    content="https://github.com/tbaltrushaitis" />
 
   <!--/  Favicon  /-->
   <link href="assets/img/favicon.ico" type="image/x-icon" rel="icon" />
@@ -13,12 +45,6 @@
   <link rel="stylesheet" href="assets/css/animate.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script> -->
-  <script type="text/javascript" src="assets/js/socket.io.js"></script>
-  <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="assets/js/underscore.js"></script>
-  <script type="text/javascript" src="assets/js/progress.js"></script>
 </head>
 
 <body>
@@ -51,9 +77,16 @@
 
   </div>
 
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script> -->
+  <script type="text/javascript" src="assets/js/socket.io.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/underscore.js"></script>
+  <script type="text/javascript" src="assets/js/progress.js"></script>
+
   <script>
     $(function () {
-      // var ioClient = new io.Socket()
+
       var ioClient = io()
         , aSpds    = ['fast', 'norm', 'slow']
         , aStats   = _.object(aSpds, [0, 0, 0])

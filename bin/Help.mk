@@ -1,8 +1,10 @@
 ##  ------------------------------------------------------------------------  ##
-##              			   		     Show help topic       	   	                  ##
+##                              Show help topic                               ##
 ##  ------------------------------------------------------------------------  ##
 
 include ./bin/.bash_colors
+
+##  ------------------------------------------------------------------------  ##
 
 .PHONY: help
 
@@ -16,7 +18,7 @@ help: banner
 	@ echo "\t" make ${BPurple}deploy${NC} "\t" - DEPLOY compiled project to \"webroot\" directory;
 	@ echo "\t" make ${BRed}all${NC} "\t" -${BGreen}Run all operations for current stage from NODE_ENV file${NC};
 	@ echo "\t" make ${BRed}rebuild${NC} "\t" -${BGreen}Execute [build, release, deploy] tasks${NC};
-	@ echo "\t" make ${BRed}redeploy${NC}   -${BGreen}Execute [release, deploy] tasks${NC};
+	@ echo "\t" make ${BRed}redeploy${NC} " "-${BGreen}Execute [rebuild, deploy] tasks${NC};
 	@ echo ${BCyan}---------------------------------------------------------${NC};
 
 ##  ------------------------------------------------------------------------  ##
