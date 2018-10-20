@@ -55,10 +55,10 @@ Then navigate your agent to `http://your-local.domain:8084/`
 
  Scope | Role | Name | Version | Description
 :-----:|:----:|:-----|:-------:|:------------
- Front | Library | [animate.css](http://daneden.github.io/animate.css/) | 3.5.2 | A cross-browser library of CSS animations
+ Front | Library | [animate.css](http://daneden.github.io/animate.css/) | 3.7.0 | A cross-browser library of CSS animations
  Front | Framework | [Bootstrap](http://getbootstrap.com) | 3.3.7 | HTML, CSS, and JS framework
  Front | Library | [jQuery](http://jquery.com/) | 3.3.1 | JavaScript Library
- Front | Library | [Lodash](https://lodash.com/docs/4.17.5) | 4.17.5 | A modern JavaScript utility library delivering modularity, performance & extras.
+ Front | Library | [Lodash](https://lodash.com/docs/4.17.11) | 4.17.11 | A modern JavaScript utility library delivering modularity, performance & extras.
 
 ---
 
