@@ -57,7 +57,7 @@
         "autoprefixer": "^9.2.1"
       , "bower":        "^1.8.4"
     }
-  , "dependenciesDisabled": {
+  , "dependenciesDeprecated": {
         "connect":    "~3.4.1"
       , "text":       "~2.0.14"
       , "use-amd":    "~0.4.0"
