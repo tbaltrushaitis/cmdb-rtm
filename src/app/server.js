@@ -1,7 +1,7 @@
 /*!
  * Project: cmdb-rtm
  * File:    ./app/server.js
- * Author:  Tomas B. <tbaltrushaitis@gmail.com>
+ * Author:  Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License: MIT
  * Created: 2017-12-31
  */
@@ -15,7 +15,7 @@
 
 const path = require('path');
 const util = require('util');
-const inherits = require('util').inherits;
+const utin = util.inspect;
 const { spawn } = require('child_process');
 const EE = require('events').EventEmitter;
 
@@ -43,8 +43,7 @@ const webPath = path.normalize(path.join(appPath, '..', 'web'));
 const confBase = path.normalize(path.join(appPath, '..', 'config', path.sep));
 const Config = require(confBase);
 
-const utin = util.inspect;
-utin.defaultOptions = _.extend({}, Config.get('iopts'));
+utin.defaultOptions = Object.assign({}, Config.get('iopts'));
 
 const aSpd = ['norm', 'fast', 'slow'];
 
@@ -88,7 +87,7 @@ const Job = class Job extends EE {
                   });
 
     jobRun.on('close', (code) => {
-      // console.log(`child process exited with code [${code}]`);
+      console.log(`child process exited with code [${code}]`);
     });
 
   }
@@ -171,8 +170,8 @@ app.post('/spawn', function (req, res) {
             "domain":      connection.domain
           , "connected":   connection.connected
           , "handshaked":  connection.handshaked
-          , "connections": connection.connections
-          , "options":     connection.options
+          // , "connections": connection.connections
+          // , "options":     connection.options
           , "_heartbeats": connection._heartbeats
           , "_maxListeners": connection._maxListeners
           , "sessionId":   connection.sessionId
