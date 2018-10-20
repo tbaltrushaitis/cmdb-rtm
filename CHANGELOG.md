@@ -16,11 +16,11 @@ Real-time Tasks Progress Visualization
 
 Magic jump to [README] file
 
-### v0.0.2 ([Current](https://github.com/tbaltrushaitis/cmdb-rtm/tree/master)): ###
+### [v0.0.2](https://github.com/tbaltrushaitis/cmdb-rtm/tree/master) ([Current]): ###
 - [x] Reorganization of DOCS;
 - [x] Added community standards files;
 
-## dev ([Next](https://github.com/tbaltrushaitis/cmdb-rtm/tree/dev)): ##
+## [dev](https://github.com/tbaltrushaitis/cmdb-rtm/tree/dev) (Next): ##
 - [ ] Merge source code pipeline with latest appropriate .ENV commit;
 
 ### Release (Initial): ###

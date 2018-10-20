@@ -10,6 +10,8 @@
 SHELL = /bin/sh
 
 ##  ------------------------------------------------------------------------  ##
+$(shell if [ ! -f ./NODE_ENV ] 2>/dev/null; then cp -prv config/.NODE_ENV ./NODE_ENV; fi);
+$(shell if [ ! -f ./.bowerrc ] 2>/dev/null; then cp -prv config/.bowerrc ./; fi);
 
 APP_NAME := cmdb-rtm
 APP_SLOG := "CMDB-RTM"
