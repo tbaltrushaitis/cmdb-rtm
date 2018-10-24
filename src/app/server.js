@@ -105,7 +105,7 @@ let connections = {}
   , spawnTime   = Math.floor(Math.random() * 4000) + 1500
 ;
 
-console.log(`[${new Date().toISOString()}] [${utin(process.memoryUsage().rss)}] spawnTime: [${utin(spawnTime)}]`);
+console.log(`[${new Date().toISOString()}] [RAM:${utin(process.memoryUsage().rss)}] spawnTime: [${utin(spawnTime)}]`);
 
 const app = express();
 app.set('port', Config.get('app:port') || process.env.PORT || 8084);
