@@ -39,9 +39,7 @@ Just `clone` and `make`:
 then `start` as service:
 
 ```shell
- $ REPO="cmdb-rtm" \
-&& cd ${REPO} \
-&& npm start ;
+$ npm start
 ```
 
  - [x] It might looks like:
