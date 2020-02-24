@@ -1,15 +1,15 @@
-[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
-[![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm)
-[![devDependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm/dev-status.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm#info=devDependencies)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE.md)
-
 # CMDB-rtm #
 
 Real-time Tasks Progress Visualization
 
+[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
+[![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm)
+[![devDependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm/dev-status.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm#info=devDependencies)
+<!-- [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE.md) -->
+
 ![Real Time Jobs Progress View](assets/img/cmdb-rtm-poc-4-windows.gif)
 
-`cmdb` `real-time` `monitoring` `data visualization`
+`cmdb` `real-time` `tasks` `queue` `progress` `monitoring` `visualized` `data visualization`
 
 ---
 
@@ -27,32 +27,32 @@ All data about status will be shown as HTML elements with some (or any) animatio
 
 Its simple. Get it done in the way like this piece of shi*, sorry, of course pieces of code below:
 
-Just `clone` and `make`:
+Simply clone the repository and then run `make` inside of a cloned directory:
 
 ```shell
- $ REPO="cmdb-rtm" \
+$  REPO="cmdb-rtm" \
 && git clone "https://github.com/tbaltrushaitis/${REPO}" \
 && cd ${REPO} \
 && make ;
 ```
 
-then `start` as service:
+then `start` as a service:
 
 ```shell
 $ npm start
 ```
 
- - [x] It might looks like:
+- [x] It might looks like:
 
 ![Run Application Server](assets/img/npm-start-001.png)
 
 Then navigate your agent to :point_right: `http://localhost:8084/`
 
- - [x] Visualized rtm-data should be **visible** and **animated**:
+- [x] Tasks queue data should be **visible** and **animated**:
 
 ![Real Time Jobs Progress View](assets/img/cmdb-rtm-progress.gif)
 
- - [x] Check output of server console:
+- [x] Check output of server console:
 
 ![Run Application Server](assets/img/user-connected-001.png)
 
@@ -62,17 +62,17 @@ Then navigate your agent to :point_right: `http://localhost:8084/`
 
  Scope | Role | Name | Version | Description
 :-----:|:----:|:-----|:-------:|:------------
- Front | Library | [animate.css](http://daneden.github.io/animate.css/) | 3.7.0 | A cross-browser library of CSS animations
- Front | Framework | [Bootstrap](http://getbootstrap.com) | 3.3.7 | HTML, CSS, and JS framework
- Front | Library | [jQuery](http://jquery.com/) | 3.3.1 | JavaScript Library
- Front | Library | [Lodash](https://lodash.com/docs/4.17.11) | 4.17.11 | A modern JavaScript utility library delivering modularity, performance & extras.
+ Front | Library | [animate.css](http://daneden.github.io/animate.css/) | [3.7.2](https://github.com/daneden/animate.css/tree/3.7.2) | A cross-browser library of CSS animations
+ Front | Framework | [Bootstrap](http://getbootstrap.com) | [3.4.1](https://getbootstrap.com/docs/3.4/) | HTML, CSS, and JS framework
+ Front | Library | [jQuery](http://jquery.com/) | [3.4.1](https://github.com/jquery/jquery/tree/3.4.1) | JavaScript Library
+ Front | Library | [Lodash](https://lodash.com/) | [4.17.15](https://lodash.com/docs/4.17.15) | A modern JavaScript utility library delivering modularity, performance & extras.
 
 ---
 
-## Todo List ##
+## TODO List ##
 
- - [ ] Implement business logic within a real ES6 Class instances
- - [ ] ~~Create repository~~ (Done v0.0.0)
+- [ ] Implement business logic within a real ES6 Class instances
+- [x] ~~Create repository~~ (Done v0.0.0)
 
 See the [Changelog][Changelog] for the history of project changes and improvements.
 
