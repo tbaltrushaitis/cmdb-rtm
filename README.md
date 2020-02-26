@@ -4,7 +4,6 @@ Real-time Tasks Progress Visualization
 
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
 [![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm)
-[![devDependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm/dev-status.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm#info=devDependencies)
 <!-- [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE.md) -->
 
 ![Real Time Jobs Progress View](assets/img/cmdb-rtm-poc-4-windows.gif)
@@ -18,9 +17,9 @@ Try to open this [page](http://bit.ly/cmdb-rtm-live) :point_left: in:
 
 - [ ] :zero::zero: - **several tabs** of your current browser
  or
-- [better] :zero::five: - do it in **several different browsers**
+- [x] :zero::five: - do it in **several different browsers**
  or
-- [best] :five::zero: - use **several different devices** to try from
+- [x] :five::zero: - use **several different devices** to try from
 
 All data about tasks progress status will be shown as HTML elements with various
 (if there are any) animations. Live page can be viewed `simultaneously` on any
