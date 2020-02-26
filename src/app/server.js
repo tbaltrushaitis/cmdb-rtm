@@ -8,29 +8,29 @@
 
 'use strict';
 
-/*
- * DEPENDENCIES
- * @private
+/**
+ * @_DEPENDENCIES
  */
 
 const path = require('path');
 const util = require('util');
 const utin = util.inspect;
+
 const { spawn } = require('child_process');
-const EE = require('events').EventEmitter;
+const EE        = require('events').EventEmitter;
 
-const io = require('socket.io');
-const _ = require('lodash');
-const express = require('express');
-const http = require('http');
-const respTime = require('response-time');
-const bodyParser = require('body-parser');
-const compression = require('compression');
-const cookieParser = require('cookie-parser');
+const io            = require('socket.io');
+const _             = require('lodash');
+const express       = require('express');
+const http          = require('http');
+const respTime      = require('response-time');
+const bodyParser    = require('body-parser');
+const compression   = require('compression');
+const cookieParser  = require('cookie-parser');
 
 
-/*
- * CONFIGURATION
+/**
+ * @_CONFIGURATION
  */
 
 let ME = {};
@@ -50,15 +50,14 @@ const netErrors = ['EADDRINUSE', 'ECONNREFUSED', 'ECONNRESET'];
 
 
 /**
- * DECLARATION
+ * @_DECLARATION
  * @class
  */
 
 const Job = class Job extends EE {
 
   /**
-   * CONSTRUCTOR
-   * @special
+   * @_CONSTRUCTOR
    */
 
   constructor (jobId) {
@@ -67,8 +66,7 @@ const Job = class Job extends EE {
   }
 
   /**
-   * METHODS
-   * @prototype
+   * @_METHODS
    */
 
   init (id) {
@@ -76,11 +74,11 @@ const Job = class Job extends EE {
   }
 
   run () {
-    console.log(`[${new Date().toISOString()}] RUN Job [${utin(this.id)}]`);
+    console.log(`[${new Date().toISOString()}] START Job [${utin(this.id)}]`);
 
     let job = this;
     let rndJobSpeed = aSpd[parseInt(Math.floor(Math.random() * 3))];
-    let shPath = path.join(__dirname, 'bin', 'job-' + rndJobSpeed + '.sh');
+    let shPath = path.join(__dirname, 'bin', `job-${rndJobSpeed}.sh`);
     let jobRun = spawn(shPath)
                   .stdout.on('data', function (output) {
                     // console.log(`[${new Date().toISOString()}] data = [${output.toString()}]`);
@@ -88,7 +86,7 @@ const Job = class Job extends EE {
                   });
 
     jobRun.on('close', (code) => {
-      console.log(`[${new Date().toISOString()}] Child process [${utin(this.id)}] exited with code [${utin(code)}]`);
+      console.log(`[${new Date().toISOString()}] DONE Job [${utin(this.id)}]`);
     });
 
   }
@@ -97,7 +95,7 @@ const Job = class Job extends EE {
 
 
 /**
- * MIDDLEWARES
+ * @_MIDDLEWARES
  */
 
 let connections = {}
@@ -131,18 +129,19 @@ const appServer = http.createServer(app);
 const ioServer = require('socket.io')(appServer);
 ioServer.on('connection', function (client) {
   console.log(`[${new Date().toISOString()}] CONNECTED
-  User [${utin(client.conn.id)}]
-  from [${utin(client.conn.remoteAddress)}]
+  User [${client.conn.id}]
+  From [${client.request.headers['x-real-ip']}]
   [ONLINE:${utin(client.conn.server.clientsCount)}]
 `);
+// from [${client.conn.remoteAddress}]
 // by [${utin(Object.keys(client.conn))}]
 
   connections[client.conn.id] = client;
 
   client.on('disconnect', function () {
     console.log(`[${new Date().toISOString()}] DISCONNECTED
-      User [${utin(client.conn.id)}]
-      From [${utin(client.conn.remoteAddress)}]
+      User [${client.conn.id}]
+      From [${client.request.headers['x-real-ip']}]
       [ONLINE:${utin(client.conn.server.clientsCount)}]
     `);
     // by [${utin(Object.keys(client.conn.server))}]
@@ -154,12 +153,13 @@ ioServer.on('connection', function (client) {
 let optsStatic = {
     dotfiles:   'ignore'
   , etag:       true
-  , extensions: ['htm', 'html']
+  , extensions: ['htm', 'html', 'png', 'jpg', 'jpeg', 'ico', 'gif', 'js', 'css']
   , index:      false
-  , maxAge:     '1d'
+  , maxAge:     '15d'
   , redirect:   false
   , setHeaders: function (res, path, stat) {
-      res.set('x-timestamp', Date.now());
+      res.set('X-Powered-By', 'tbaltrushaitis@gmail.com');
+      res.set('X-Timestamp', Date.now());
     }
 }
 app.use(express.static(webPath, optsStatic));
@@ -298,8 +298,12 @@ process.on('SIGINT', function () {
 
 
 /**
- * EXPOSES
- * @public
+ * @_EXPOSE
  */
+exports = Job;
 
-module.exports = exports = Job;
+
+/**
+ * @_EXPORTS
+ */
+module.exports = exports;

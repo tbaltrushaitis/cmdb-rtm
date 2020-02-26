@@ -43,5 +43,6 @@ This is the very first code release.
 :scorpius:
 
 [readme]: README.md
-[README.md]: README.md
+[README]: README.md
 [current]: README.md
+[License]: LICENSE.md

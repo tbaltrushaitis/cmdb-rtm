@@ -7,14 +7,14 @@
 .IGNORE:
 .ONESHELL:
 
-SHELL = /bin/sh
+# SHELL = /bin/sh
 
 ##  ------------------------------------------------------------------------  ##
 $(shell if [ ! -f ./NODE_ENV ] 2>/dev/null; then cp -prv config/.NODE_ENV ./NODE_ENV; fi);
 $(shell if [ ! -f ./.bowerrc ] 2>/dev/null; then cp -prv config/.bowerrc ./; fi);
 
 APP_NAME := cmdb-rtm
-APP_SLOG := "CMDB-RTM"
+APP_SLOG := "CMDB - RTM"
 APP_LOGO := ./assets/BANNER
 APP_REPO := $(shell git ls-remote --get-url)
 
@@ -31,7 +31,7 @@ include ./bin/Colors
 ##  ------------------------------------------------------------------------  ##
 
 $(file > COMMIT,${GIT_COMMIT})
-$(info [${Cyan}${DT}${NC}] Created file [${BYellow}COMMIT${NC}:${BPurple}${GIT_COMMIT}${NC}]);
+$(info [${Gray}${DT}${NC}] Created file [${BYellow}COMMIT${NC}:${BPurple}${GIT_COMMIT}${NC}]);
 
 DIR_SRC := ${WD}/src
 DIR_BUILD := ${WD}/build-${CODE_VERSION}
@@ -48,7 +48,7 @@ ifeq ($(.DEFAULT_GOAL),)
 .DEFAULT_GOAL := default
 endif
 
-$(info [$(Cyan)$(DT)$(NC)] $(BYellow)Default goal is$(NC): [$(BPurple)$(.DEFAULT_GOAL)]$(NC));
+$(info [$(Gray)$(DT)$(NC)] $(BYellow)Default goal is$(NC): [$(BPurple)$(.DEFAULT_GOAL)]$(NC));
 
 ##  ------------------------------------------------------------------------  ##
 ##                                  INCLUDES                                  ##
@@ -71,11 +71,11 @@ test: banner state help banner;
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: setup build deploy dev
+.PHONY: setup build deploy
 
 setup:
-	@ npm i
-	@ bower i
+	@ npm i -verbose
+	@ bower i -V
 
 build:
 	@ NODE_ENV=${APP_ENV};
@@ -94,7 +94,7 @@ redeploy: rebuild deploy;
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: all full cycle
+.PHONY: all full cycle dev
 #* means the word "all" doesn't represent a file name in this Makefile;
 #* means the Makefile has nothing to do with a file called "all" in the same directory.
 
@@ -103,5 +103,7 @@ all: clean rights banner cycle;
 full: clean-all all;
 
 cycle: setup build deploy;
+
+dev: redeploy banner
 
 ##  ------------------------------------------------------------------------  ##
