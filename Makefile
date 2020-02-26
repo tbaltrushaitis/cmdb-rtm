@@ -31,7 +31,7 @@ include ./bin/Colors
 ##  ------------------------------------------------------------------------  ##
 
 $(file > COMMIT,${GIT_COMMIT})
-$(info [${Cyan}${DT}${NC}] Created file [${BYellow}COMMIT${NC}:${BPurple}${GIT_COMMIT}${NC}]);
+$(info [${Gray}${DT}${NC}] Created file [${BYellow}COMMIT${NC}:${BPurple}${GIT_COMMIT}${NC}]);
 
 DIR_SRC := ${WD}/src
 DIR_BUILD := ${WD}/build-${CODE_VERSION}
@@ -48,7 +48,7 @@ ifeq ($(.DEFAULT_GOAL),)
 .DEFAULT_GOAL := default
 endif
 
-$(info [$(Cyan)$(DT)$(NC)] $(BYellow)Default goal is$(NC): [$(BPurple)$(.DEFAULT_GOAL)]$(NC));
+$(info [$(Gray)$(DT)$(NC)] $(BYellow)Default goal is$(NC): [$(BPurple)$(.DEFAULT_GOAL)]$(NC));
 
 ##  ------------------------------------------------------------------------  ##
 ##                                  INCLUDES                                  ##
@@ -74,8 +74,8 @@ test: banner state help banner;
 .PHONY: setup build deploy
 
 setup:
-	@ npm i
-	@ bower i
+	@ npm i -verbose
+	@ bower i -V
 
 build:
 	@ NODE_ENV=${APP_ENV};

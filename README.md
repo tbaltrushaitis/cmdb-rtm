@@ -14,12 +14,17 @@ Real-time Tasks Progress Visualization
 ---
 
 ## Live Demo ##
-Try to open this [link](http://bit.ly/cmdb-rtm) :point_left: in **several tabs** of your current browser or
+Try to open this [page](http://bit.ly/cmdb-rtm-live) :point_left: in:
 
- - [ ] better - do it in **different browsers**
- - [x] best - use **different devices** to try from
+- [ ] :zero::zero: - **several tabs** of your current browser
+ or
+- [better] :zero::five: - do it in **several different browsers**
+ or
+- [best] :five::zero: - use **several different devices** to try from
 
-All data about status will be shown as HTML elements with some (or any) animations run on all devices `simultaneously`
+All data about tasks progress status will be shown as HTML elements with various
+(if there are any) animations. Live page can be viewed `simultaneously` on any
+device and all instances should look same.
 
 ---
 
