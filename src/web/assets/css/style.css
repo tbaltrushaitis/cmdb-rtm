@@ -4,11 +4,11 @@ div#template {
 
 div.progress-container {
   border: 1px solid #ccc;
-  width: 400px;
+  clear: both;
   margin: 2px 5px 2px 0;
   padding: 1px;
-  clear: both;
   position: relative;
+  width: 300px;
 }
 /*
   background: white;
@@ -23,12 +23,13 @@ div.progress-bar {
  */
 
 span.progress-text {
-  width: 400px;
+  /* width: 400px; */
   text-align: center;
   float: left;
   font: normal 12px Arial,sans-serif;
   margin-top: 3px;
   color: #666;
+  width: 300px;
 }
 
 span.progress-text span {
