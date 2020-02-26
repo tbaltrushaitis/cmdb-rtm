@@ -61,25 +61,29 @@
 
   <div id="container" class="container">
 
-    <!-- <section id="heading" class="section content"> -->
-    <p class="text-secondary">
-      <label for="#client-id">Client ID:</label>
-      <small id="client-id"></small>
-    </p>
-    <hr />
-    <!-- </section> -->
+    <div class="page-header">
+      <h2 class="text-warning">Customer:<small id="client-id"></small></h2>
+    </div>
 
     <section id="tasks-stats" class="section content">
-      <h2 class="text-success">Tasks Queue</h2>
-      <ul id="tasks-legend" class="list-unstyled hidden">
-        <li>Slow: <span id="tasks-slow"></span></li>
-        <li>Norm: <span id="tasks-norm"></span></li>
-        <li>Fast: <span id="tasks-fast"></span></li>
-        <li>TOTAL: <span id="tasks-total"></span></li>
-      </ul>
+      <h3 class="text-success">Tasks Queue</h3>
+      <div class="row">
+          <ul id="tasks-legend" class="list-unstyled hidden">
+            <li>Slow: <span id="tasks-slow"></span></li>
+            <li>Norm: <span id="tasks-norm"></span></li>
+            <li>Fast: <span id="tasks-fast"></span></li>
+            <li>TOTAL: <span id="tasks-total"></span></li>
+          </ul>
+      </div>
     </section>
 
-    <section id="tasks-monitor" class="section content">
+    <section class="section content">
+      <div class="row">
+        <div class="col-sm-10">
+          <div id="tasks-monitor">
+          </div>
+        </div>
+      </div>
     </section>
 
   </div>
@@ -102,7 +106,6 @@
 
   <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script> -->
   <script type="text/javascript" src="assets/js/lib/socket.io.js"></script>
-
   <script type="text/javascript" src="assets/js/app/progress.js"></script>
 
   <script>
