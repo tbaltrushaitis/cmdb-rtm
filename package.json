@@ -44,15 +44,16 @@
         "backbone":      "^1.4.0"
       , "compression":   "^1.7.4"
       , "cookie-parser": "^1.4.4"
+      , "dotenv":        "^8.2.0"
       , "express":       "^4.17.1"
       , "gulp":          "^4.0.2"
       , "lodash":        "^4.17.15"
-      , "nconf":         "^0.10.0"
       , "md5":           "^2.2.1"
-      , "socket.io":     "^2.3.0"
+      , "nconf":         "^0.10.0"
       , "path":          "^0.12.7"
       , "requestify":    "^0.2.5"
       , "response-time": "^2.3.2"
+      , "socket.io":     "^2.3.0"
       , "uuid":          "^8.3.0"
     }
   , "devDependencies": {

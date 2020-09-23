@@ -8,52 +8,55 @@
 
 'use strict';
 
-/**
- * @_DEPENDENCIES
- */
+//  Reads configuration from .env file
+require('dotenv').config()
 
-const atob = require('atob');
-const path = require('path');
-const utin = require('util').inspect;
+/**   @_DEPENDENCIES    **/
+const atob = require('atob')
+const path = require('path')
+const utin = require('util').inspect
 
-const { spawn } = require('child_process');
-const EE        = require('events').EventEmitter;
+const { spawn } = require('child_process')
+const EE        = require('events').EventEmitter
 
-const _             = require('lodash');
-const io            = require('socket.io');
-const express       = require('express');
-const http          = require('http');
-const respTime      = require('response-time');
-const bodyParser    = require('body-parser');
-const compression   = require('compression');
-const cookieParser  = require('cookie-parser');
+const _             = require('lodash')
+const io            = require('socket.io')
+const express       = require('express')
+const http          = require('http')
+const respTime      = require('response-time')
+const bodyParser    = require('body-parser')
+const compression   = require('compression')
+const cookieParser  = require('cookie-parser')
 
 
 /**
  * @_CONFIGURATION
  */
+let ME = {}
 
-let ME          = {};
-const appPath   = path.dirname(module.filename);
-const modName   = path.basename(module.filename, '.js');
-const modPath   = path.relative(appPath, path.dirname(module.filename));
-const modsPath  = path.join(appPath, 'modules', path.sep);
-const libsPath  = path.normalize(path.join(appPath, '..', 'lib', path.sep));
-const webPath   = path.normalize(path.join(appPath, '..', 'web'));
-const confBase  = path.normalize(path.join(appPath, '..', 'config', path.sep));
-const Config    = require(confBase);
+const CWD     = process.cwd()
+const appPath = path.join(CWD, 'app')
+const cfgPath = path.join(CWD, 'config')
+const modPath = path.join(appPath, 'modules')
+const webPath = path.join(CWD, 'web')
+// const libPath = path.join(CWD, 'lib')
 
-utin.defaultOptions = Object.assign({}, Config.get('iopts'));
+const Config    = require(cfgPath)
 
-const aSpd      = ['norm', 'fast', 'slow'];
-const netErrors = ['EADDRINUSE', 'ECONNREFUSED', 'ECONNRESET'];
+utin.defaultOptions = Object.assign({}, Config.get('iopts'))
+
+const aSpd      = ['norm', 'fast', 'slow']
+const netErrors = ['EADDRINUSE', 'ECONNREFUSED', 'ECONNRESET']
+
+const AbstractModule = require(`${modPath}/Abstract.module`)
 
 
 /**
  * @_DECLARATION
  * @class
  */
-const Job = class Job extends EE {
+// const Job = class Job extends EE {
+const Job = class Job extends AbstractModule {
 
   /**
    * @_CONSTRUCTOR
@@ -267,15 +270,16 @@ App.use(function (err, req, res, next) {
 
   //  Return json
   res.send({
-      status: 'error'
-    , code: err.code
-    , errno: err.errno
-    , message: err.message
+      status:   'error'
+    , code:     err.code
+    , errno:    err.errno
+    , message:  err.message
   });
 
 });
 
-//  Unhandled exception
+
+//  Uncaught Exception
 process.on('uncaughtException', function (err) {
 
   //  Log exception
@@ -285,7 +289,7 @@ process.on('uncaughtException', function (err) {
   // }
 
   let isNetError = /[netErrors.join('|')]/.test(err.message);
-  console.log(`isNetError = [${utin(isNetError)}]`);
+  console.log(`[${new Date().toISOString()}][UncaughtException] isNetError = [${utin(isNetError)}]`);
   if (isNetError) {
     console.log(`[${new Date().toISOString()}] Catched [NETWORK] Error: [${utin(err.message)}]`);
     console.log(`[${new Date().toISOString()}] Shutting down immediately`);
@@ -293,15 +297,19 @@ process.on('uncaughtException', function (err) {
   }
 
   // console.error(`[${new Date().toISOString()}][${Noty.pref}] UncaughtException [${err.message}]:`, {
-  console.log(`[${new Date().toISOString()}] UncaughtException [${utin(err.message)}]:
+  console.log(`[${new Date().toISOString()}][UncaughtException] [${utin(err.message)}]:
     stack: ${err.stack ? utin(err) : 'N/A'}
   `);
   process.exit();
 
 });
 
-process.on('SIGINT', function () {
+process.on('SIGINT', function (data) {
+
+  console.log(`[${new Date().toISOString()}] SIGINT received with [data] = [${utin(data)}]`);
   AppServer.close();
+  process.exit();
+
 });
 
 

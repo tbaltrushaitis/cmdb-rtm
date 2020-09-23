@@ -36,8 +36,8 @@ $.fn.progressBar = function (oJob) {
       .css('width', `${oJob.progress}%`)
       .end()
     .tap(function () {
-      if (100 === oJob.progress) {
 
+      if (100 === oJob.progress) {
         ElTotal.text( ++window.aStats['total'] );
 
         let ElTaskSpeed = $(`#tasks-${oJob.speed}`);
@@ -77,8 +77,12 @@ $.fn.progressBar = function (oJob) {
           .after(5000, function () {
             $(this).remove();
           })
+        ;
+
       }
+
     })
+
 }
 
 $.fn.otherwise = function (ifNotFound) {
