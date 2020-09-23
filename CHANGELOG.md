@@ -16,7 +16,12 @@ Real-time Tasks Progress Visualization
 
 Magic jump to [README] file
 
-### [v0.0.2](https://github.com/tbaltrushaitis/cmdb-rtm/tree/master) ([Current]): ###
+### [v0.0.3](https://github.com/tbaltrushaitis/cmdb-rtm/tree/master) ([Current]): ###
+- [x] npm i --save-dev autoprefixer@10.0.0
+- [x] npm i --save uuid@8.3.0
+- [x] bower i --save jquery@3.5.1 ionicons@5.0.0 font-awesome@5.14.0 animate.css@4.1.1 admin-lte@3.0.5
+
+### [v0.0.2](https://github.com/tbaltrushaitis/cmdb-rtm/tree/v0.0.2): ###
 - [x] Reorganization of DOCS;
 - [x] Added community standards files;
 

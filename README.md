@@ -99,7 +99,7 @@ This product is [MIT Licensed][License]
 
 > Developed in **November 2016**
 
-:scorpius:
+:scorpion:
 
 [Changelog]: CHANGELOG.md
 [License]: LICENSE.md

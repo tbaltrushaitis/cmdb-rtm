@@ -1,24 +1,24 @@
 {
-  "app": {
-      "name": "cmdb-rtm"
-    , "domain": "cmdb-rtm"
-    , "host": "localhost"
-    , "port": 8084
-    , "family": "IPv4"
-  }
-, "api": {
-    "name": "cmdb-api"
-  , "authKey": "some_key_here"
-  , "defaultUrl": "https://cmdb-api"
-  }
-, "mods": {
-    "defs": {
-      "nameLen": 15
+    "app": {
+        "name":   "cmdb-rtm"
+      , "domain": "cmdb-rtm"
+      , "host":   "localhost"
+      , "port":   8084
+      , "family": "IPv4"
     }
-  }
-, "iopts": {
-      "showHidden": false
-    , "depth": 5
-    , "colors": true
-  }
+  , "api": {
+        "name":       "cmdb-api"
+      , "authKey":    "hX3APfiTnPTFq9mYTZGlgIhPCDDZpnjb"
+      , "defaultUrl": "https://cmdb-api"
+    }
+  , "mods": {
+      "defs": {
+        "nameLen": 15
+      }
+    }
+  , "iopts": {
+        "colors":     true
+      , "depth":      5
+      , "showHidden": false
+    }
 }

@@ -1,5 +1,5 @@
 {   "name":           "cmdb-rtm"
-  , "version":        "0.0.2"
+  , "version":        "0.0.3"
   , "title":          "CMDB :: Real-time data Visualization"
   , "description":    "Real-time Tasks Progress Visualized Monitoring"
   , "readmeFilename": "README.md"
@@ -26,10 +26,10 @@
     ]
   , "main": "app/server.js"
   , "scripts": {
-        "start": "node app/server.js"
-      , "build": "gulp build"
-      , "preinstall": ""
-      , "postinstall": ""
+        "start":        "node app/server.js"
+      , "build":        "gulp build"
+      , "preinstall":   ""
+      , "postinstall":  ""
     }
   , "repository": {
         "type": "git"
@@ -53,15 +53,15 @@
       , "path":          "^0.12.7"
       , "requestify":    "^0.2.5"
       , "response-time": "^2.3.2"
-      , "uuid":          "^3.4.0"
+      , "uuid":          "^8.3.0"
     }
   , "devDependencies": {
-        "autoprefixer": "^9.3.1"
+        "autoprefixer": "^10.0.0"
       , "bower":        "^1.8.4"
     }
   , "dependenciesDeprecated": {
-        "connect":    "~3.4.1"
-      , "text":       "~2.0.14"
-      , "use-amd":    "~0.4.0"
+        "connect":  "~3.4.1"
+      , "text":     "~2.0.14"
+      , "use-amd":  "~0.4.0"
     }
 }
