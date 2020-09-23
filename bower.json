@@ -21,13 +21,13 @@
       , "build"
     ]
   , "dependencies": {
-        "admin-lte":    "~2.3.11"
-      , "animate.css":  "~3.7.2"
+        "admin-lte":    "~3.0.5"
+      , "animate.css":  "~4.1.1"
       , "backbone":     "~1.4.0"
       , "bootstrap":    "~3.4.1"
-      , "font-awesome": "~4.7.0"
-      , "ionicons":     "~4.4.6"
-      , "jquery":       "~3.4.1"
+      , "font-awesome": "~5.14.0"
+      , "ionicons":     "~5.0.0"
+      , "jquery":       "~3.5.1"
       , "jquery-ui":    "~1.12.1"
       , "jquery-tmpl":  "*"
       , "lodash":       "^4.17.15"
