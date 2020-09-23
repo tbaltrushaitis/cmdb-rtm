@@ -12,15 +12,15 @@
  * @_DEPENDENCIES
  */
 
+const atob = require('atob');
 const path = require('path');
-const util = require('util');
-const utin = util.inspect;
+const utin = require('util').inspect;
 
 const { spawn } = require('child_process');
 const EE        = require('events').EventEmitter;
 
-const io            = require('socket.io');
 const _             = require('lodash');
+const io            = require('socket.io');
 const express       = require('express');
 const http          = require('http');
 const respTime      = require('response-time');
@@ -33,19 +33,19 @@ const cookieParser  = require('cookie-parser');
  * @_CONFIGURATION
  */
 
-let ME = {};
-const appPath = path.dirname(module.filename);
-const modName = path.basename(module.filename, '.js');
-const modPath = path.relative(appPath, path.dirname(module.filename));
-const modsPath = path.join(appPath, 'modules', path.sep);
-const libsPath = path.normalize(path.join(appPath, '..', 'lib', path.sep));
-const webPath = path.normalize(path.join(appPath, '..', 'web'));
-const confBase = path.normalize(path.join(appPath, '..', 'config', path.sep));
-const Config = require(confBase);
+let ME          = {};
+const appPath   = path.dirname(module.filename);
+const modName   = path.basename(module.filename, '.js');
+const modPath   = path.relative(appPath, path.dirname(module.filename));
+const modsPath  = path.join(appPath, 'modules', path.sep);
+const libsPath  = path.normalize(path.join(appPath, '..', 'lib', path.sep));
+const webPath   = path.normalize(path.join(appPath, '..', 'web'));
+const confBase  = path.normalize(path.join(appPath, '..', 'config', path.sep));
+const Config    = require(confBase);
 
 utin.defaultOptions = Object.assign({}, Config.get('iopts'));
 
-const aSpd = ['norm', 'fast', 'slow'];
+const aSpd      = ['norm', 'fast', 'slow'];
 const netErrors = ['EADDRINUSE', 'ECONNREFUSED', 'ECONNRESET'];
 
 
@@ -53,17 +53,16 @@ const netErrors = ['EADDRINUSE', 'ECONNREFUSED', 'ECONNRESET'];
  * @_DECLARATION
  * @class
  */
-
 const Job = class Job extends EE {
 
   /**
    * @_CONSTRUCTOR
    */
-
   constructor (jobId) {
     super();
     this.init(jobId);
   }
+
 
   /**
    * @_METHODS
@@ -72,6 +71,7 @@ const Job = class Job extends EE {
   init (id) {
     this.id = id;
   }
+
 
   run () {
     console.log(`[${new Date().toISOString()}] START Job [${utin(this.id)}]`);
@@ -105,34 +105,40 @@ let connections = {}
 
 console.log(`[${new Date().toISOString()}] [RAM:${utin(process.memoryUsage().rss)}] spawnTime: [${utin(spawnTime)}]`);
 
-const app = express();
-app.set('port', Config.get('app:port') || process.env.PORT || 8084);
-app.set('trust proxy', 1);
+const App = express();
+App.set('port', Config.get('app:port') || process.env.PORT || 8084);
+App.set('host', Config.get('app:host') || process.env.HOST || 'localhost');
+App.set('trust proxy', 1);
 
-app.use(compression());
-app.use(respTime({digits: 3}));
-app.use(express.query());
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({extended: false}));
+App.use(compression());
+App.use(respTime({digits: 3}));
+App.use(express.query());
+App.use(cookieParser());
+App.use(bodyParser.urlencoded({extended: false}));
 
 
 //  LOG ALL REQUESTS
-app.use('*', function (req, res, next) {
-  // console.log(`[${new Date().toISOString()}] RECV [${req.method} ${req.url}] [${req.path}] from [${req.ip}]`);
+App.use('*', function (req, res, next) {
+  console.log(`[${new Date().toISOString()}] RECV [${req.method} ${req.url}] [${req.path}] from [${req.ip}]`);
   next();
 });
 
 
 //  Create http server
-const appServer = http.createServer(app);
+const AppServer = http.createServer(App);
 
-const ioServer = require('socket.io')(appServer);
-ioServer.on('connection', function (client) {
+const IoServer = require('socket.io')(AppServer);
+
+IoServer.on('connection', function (client) {
   console.log(`[${new Date().toISOString()}] CONNECTED
   User [${client.conn.id}]
-  From [${client.request.headers['x-real-ip']}]
+  From [${utin(client.request)}]
   [ONLINE:${utin(client.conn.server.clientsCount)}]
 `);
+
+  console.log(`${utin(client)}`);
+
+// From [${client.request.headers['x-real-ip']}]
 // from [${client.conn.remoteAddress}]
 // by [${utin(Object.keys(client.conn))}]
 
@@ -158,76 +164,78 @@ let optsStatic = {
   , maxAge:     '15d'
   , redirect:   false
   , setHeaders: function (res, path, stat) {
-      res.set('X-Powered-By', 'tbaltrushaitis@gmail.com');
+      res.set('X-Powered-By', atob('dGJhbHRydXNoYWl0aXNAZ21haWwuY29t'));
       res.set('X-Timestamp', Date.now());
     }
 }
-app.use(express.static(webPath, optsStatic));
 
-app.post('/spawn', function (req, res) {
+App.use(express.static(webPath, optsStatic));
+
+App.post('/spawn', function (req, res) {
 
   let jobInstance = new Job(++counter);
 
   jobInstance.on('progress', function (id, progress, speed) {
 
-    // console.log(`[${new Date().toISOString()}] JOB [${id}] Progress = [${progress}] at speed = [${speed}]`);
+    console.log(`[${new Date().toISOString()}] JOB [${id}] Progress = [${progress}] at speed = [${speed}]`);
 
     _.each(connections, function (connection) {
 
       connection.send({
-          "id": id
-        , "progress": progress
-        , "speed":    speed
-        , "conn": {
-            "domain":      connection.domain
-          , "connected":   connection.connected
-          , "handshaked":  connection.handshaked
-          , "connections": connection.connections
-          , "options":     connection.options
-          , "_heartbeats": connection._heartbeats
-          , "_maxListeners": connection._maxListeners
-          , "sessionId":   connection.sessionId
+          id:       id
+        , progress: progress
+        , speed:    speed
+        , conn: {
+            domain:         connection.domain
+          , connected:      connection.connected
+          , handshaked:     connection.handshaked
+          , connections:    connection.connections
+          , options:        connection.options
+          , _heartbeats:    connection._heartbeats
+          , _maxListeners:  connection._maxListeners
+          , sessionId:      connection.sessionId
         }
       })
+
     });
 
   });
 
   jobInstance.run();
 
-  res.writeHead(202, {"Content-Type": "application/json"});
-  res.end("OK\n");
+  res.writeHead(202, {'Content-Type': 'application/json'});
+  res.end('OK\n');
 
 });
 
-appServer.listen(app.get('port'), app.get('host'), function (err) {
+AppServer.listen(App.get('port'), App.get('host'), function (err) {
   if (err) {
     console.log(`[${new Date().toISOString()}] Error to listen:
-  at [HOST:${utin(app.get('host'))}]
-  of [NET:${utin(app.get('family'))}]
-  on [PORT:${utin(app.get('port'))}]
-  in [MODE:${utin(app.settings.env)}]
-  messaged: [${utin(err)}]
+  at [HOST:${utin(App.get('host'))}]
+  of [NET:${utin(App.get('family'))}]
+  on [PORT:${utin(App.get('port'))}]
+  in [MODE:${utin(App.settings.env)}]
+  message: [${utin(err)}]
 `);
   } else {
     console.log(`[${new Date().toISOString()}] HTTP Server is listening:
-  at [HOST:${utin(appServer.address().address)}]
-  of [NET:${utin(appServer.address().family)}]
-  on [PORT:${utin(appServer.address().port)}]
-  in [MODE:${utin(app.settings.env)}]
-  and accessible by [URL:${utin(appServer.address())}]
+  at [HOST:${utin(AppServer.address().address)}]
+  of [NET:${utin(AppServer.address().family)}]
+  on [PORT:${utin(AppServer.address().port)}]
+  in [MODE:${utin(App.settings.env)}]
+  and accessible by [URL:${utin(AppServer.address())}]
 `);
 
 
     //  ROOT OF ROUTING
-    app.get('/', function (req, res) {
+    App.get('/', function (req, res) {
       res.sendFile(path.join(webPath, 'index.html'));
     });
 
     var spawnJobsInterval = setInterval(function () {
       http.request({
-          port:   app.get('port')
-        , host:   app.get('host')
+          port:   App.get('port')
+        , host:   App.get('host')
         , method: 'POST'
         , path:   '/spawn'
       })
@@ -236,7 +244,7 @@ appServer.listen(app.get('port'), app.get('host'), function (err) {
 
   }
 
-  appServer.on('close', function () {
+  AppServer.on('close', function () {
     console.log(`[${new Date().toISOString()}] HTTP Server STOP`);
     clearInterval(spawnJobsInterval);
     process.exit();
@@ -246,13 +254,13 @@ appServer.listen(app.get('port'), app.get('host'), function (err) {
 
 
 //  Error handling
-app.use(function (err, req, res, next) {
+App.use(function (err, req, res, next) {
   const status = err.statusCode || 500;
 
   //  Log exception
   console.log(`[${new Date().toISOString()}] Application server error [${utin(status)}] [${utin(err.message)}]:
     stack: ${err.stack ? utin(err.stack) : 'N/A'}
-`);
+  `);
 
   //  Set server error status
   res.status(status);
@@ -293,7 +301,7 @@ process.on('uncaughtException', function (err) {
 });
 
 process.on('SIGINT', function () {
-  appServer.close();
+  AppServer.close();
 });
 
 
