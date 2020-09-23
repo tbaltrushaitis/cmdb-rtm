@@ -28,7 +28,7 @@
   , "scripts": {
         "start":        "node app/server.js"
       , "build":        "gulp build"
-      , "preinstall":   ""
+      , "preinstall":   "make setup"
       , "postinstall":  ""
     }
   , "repository": {
