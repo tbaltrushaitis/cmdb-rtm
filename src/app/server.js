@@ -107,7 +107,7 @@ console.log(`[${new Date().toISOString()}] [RAM:${utin(process.memoryUsage().rss
 
 const App = express();
 App.set('port', Config.get('app:port') || process.env.PORT || 8084);
-App.set('host', Config.get('app:host') || process.env.HOST || 'localhost');
+App.set('host', Config.get('app:host') || process.env.HOST || '0.0.0.0');
 App.set('trust proxy', 1);
 
 App.use(compression());
@@ -119,7 +119,7 @@ App.use(bodyParser.urlencoded({extended: false}));
 
 //  LOG ALL REQUESTS
 App.use('*', function (req, res, next) {
-  console.log(`[${new Date().toISOString()}] RECV [${req.method} ${req.url}] [${req.path}] from [${req.ip}]`);
+  // console.log(`[${new Date().toISOString()}] RECV [${req.method} ${req.url}] [${req.path}] from [${req.ip}]`);
   next();
 });
 
@@ -132,11 +132,11 @@ const IoServer = require('socket.io')(AppServer);
 IoServer.on('connection', function (client) {
   console.log(`[${new Date().toISOString()}] CONNECTED
   User [${client.conn.id}]
-  From [${utin(client.request)}]
+  From [${client.request.socket._peername.address}:${utin(client.request.socket._peername.port)}]
   [ONLINE:${utin(client.conn.server.clientsCount)}]
 `);
 
-  console.log(`${utin(client)}`);
+  // console.log(`${utin(client)}`);
 
 // From [${client.request.headers['x-real-ip']}]
 // from [${client.conn.remoteAddress}]
@@ -147,7 +147,7 @@ IoServer.on('connection', function (client) {
   client.on('disconnect', function () {
     console.log(`[${new Date().toISOString()}] DISCONNECTED
       User [${client.conn.id}]
-      From [${client.request.headers['x-real-ip']}]
+      From [${client.request.socket._peername.address}:${utin(client.request.socket._peername.port)}]
       [ONLINE:${utin(client.conn.server.clientsCount)}]
     `);
     // by [${utin(Object.keys(client.conn.server))}]
@@ -177,7 +177,7 @@ App.post('/spawn', function (req, res) {
 
   jobInstance.on('progress', function (id, progress, speed) {
 
-    console.log(`[${new Date().toISOString()}] JOB [${id}] Progress = [${progress}] at speed = [${speed}]`);
+    // console.log(`[${new Date().toISOString()}] JOB [${id}] Progress = [${progress}] at speed = [${speed}]`);
 
     _.each(connections, function (connection) {
 
