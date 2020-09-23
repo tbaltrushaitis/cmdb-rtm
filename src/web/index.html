@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
   <meta http-equiv="Content-Type"    content="text/html; charset=utf-8" />
 
-  <title>Real-time Tasks Progress Visualized Monitoring :: CMDB-RTM</title>
+  <title>Real-time Tasks Progress Visualized Monitoring</title>
 
   <!--/  Mobile Specific Metas
   ========================================================================= /-->
@@ -17,9 +17,9 @@
 
   <!--/  Metas
   ========================================================================= /-->
-  <meta name="title"         content="Real-Time Visualized Monitoring - CMDB" />
+  <meta name="title"         content="Real-Time Visualized Monitoring" />
   <meta name="description"   content="Realtime Monitoring of Job's Progress" />
-  <meta name="keywords"      content="data, visualization, real-time hosting monitoring, real-time monitoring, charts, graphs, graphics" />
+  <meta name="keywords"      content="data, visualization, real-time monitoring, charts, graphs, graphics" />
   <meta name="author"        content="Baltrushaitis Tomas" />
   <meta name="language"      content="en" />
   <meta name="robots"        content="index, nofollow, noarchive" />
@@ -39,16 +39,16 @@
   ========================================================================= /-->
 
   <!--/  Bootstrap  /-->
-  <link rel="preload" href="assets/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link as="style" rel="preload" href="assets/css/bootstrap.min.css" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="assets/css/bootstrap.min.css" /></noscript>
 
-  <link rel="preload" href="assets/css/bootstrap-theme.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link as="style" rel="preload" href="assets/css/bootstrap-theme.min.css" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" /></noscript>
 
-  <link rel="preload" href="assets/css/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link as="style" rel="preload" href="assets/css/animate.min.css" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="assets/css/animate.min.css" /></noscript>
 
-  <link rel="preload" href="assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link as="style" rel="preload" href="assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="assets/css/style.css" /></noscript>
 
   <!--/  Favicon  /-->
@@ -62,7 +62,7 @@
   <div id="container" class="container">
 
     <div class="page-header">
-      <h2 class="text-warning">Customer:<small id="client-id"></small></h2>
+      <h2 class="text-warning">View:<small id="client-id"></small></h2>
     </div>
 
     <section id="tasks-stats" class="section content">
@@ -119,16 +119,16 @@
       window.aStats = Object.fromEntries(entries);
 
       // console.log(`entries (${typeof entries}):`, entries);
-      console.log(`window.aStats (${typeof window.aStats}):`, window.aStats);
-      console.log(`ioClient (${typeof ioClient}):`, ioClient);
+      console.log(`[ioClient] window.aStats (${typeof window.aStats}):`, window.aStats);
+      console.log(`[ioClient] (${typeof ioClient}):`, ioClient);
 
       ioClient.on('connect', () => {
-        console.info(`[ioSocket] Client connected to ioServer as [${ioClient.id}]`);
+        console.info(`[ioClient] Connected to ioServer as: [${ioClient.id}]`);
         $('#client-id').text( ioClient.id );
       });
 
       ioClient.on('disconnect', function () {
-        console.warn(`[ioSocket] Client disconnected from ioServer!`);
+        console.warn(`[ioClient] Disconnected from ioServer!`);
       });
 
       ioClient.on('message', function (job) {
@@ -137,7 +137,7 @@
       });
 
       ioClient.on('progress', function (job) {
-        // console.log(`[ioClient] RECV: progress`);
+        console.log(`[ioClient] RECV progress for [jobId:${job.id}]`);
         $('#template').progressBar(job);
       });
 
