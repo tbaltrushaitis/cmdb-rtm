@@ -2,7 +2,7 @@
     "app": {
         "name":   "cmdb-rtm"
       , "domain": "cmdb-rtm"
-      , "host":   "localhost"
+      , "host":   ""
       , "port":   8084
       , "family": "IPv4"
     }
