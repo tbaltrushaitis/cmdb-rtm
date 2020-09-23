@@ -1,5 +1,5 @@
 {   "name":           "cmdb-rtm"
-  , "version":        "0.0.2"
+  , "version":        "0.0.3"
   , "title":          "CMDB :: Real-time data Visualization"
   , "description":    "Real-time Tasks Progress Visualized Monitoring"
   , "readmeFilename": "README.md"
