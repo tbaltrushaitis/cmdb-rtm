@@ -38,12 +38,6 @@ const webPath = path.join(CWD, 'web')
 
 // const appPath   = path.dirname(require.main.filename)
 const modName   = path.basename(module.filename, '.js')
-// const modPath   = path.relative(appPath, path.dirname(module.filename))
-// const modsPath  = path.join(appPath, 'modules', path.sep)
-// const libsPath  = path.normalize(path.join(appPath, '..', 'lib', path.sep))
-// const confBase  = path.join(appPath, 'config')
-// const Config = require(confBase)
-// const utin = util.inspect
 
 const Config = require(cfgPath)
 // const c = require(path.join(libsPath, 'Utils')).c
@@ -69,20 +63,6 @@ const Abstract = class Abstract extends EE {
       },
       defs || {});
     super(p);
-
-    //  DEPRECATED
-    // this._Config = Config;
-    // this._config = {};
-    // this._entity = this._entity || this.constructor.name;
-    // this._name = this._entity + '_' + md5(this._entity).substr(0, this._Config.get('mods:defs:nameLen') - this._entity.length);
-    // this._title = this._name.toUpperCase();
-    // this._defaults = this._defaults || Object.assign({}, defs);
-    // this._Id = null;
-    // this._entityId = null;
-    // this._instId = uuid();
-    // this._data = {};
-    // this._model = {};
-    //  DEPRECATED
 
     this.m = this.m || {};
 

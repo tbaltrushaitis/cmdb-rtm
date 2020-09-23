@@ -8,6 +8,9 @@
 
 'use strict';
 
+//  Reads configuration from .env file
+require('dotenv').config();
+
 
 /**
  * @_DEPENDENCIES
@@ -33,24 +36,12 @@ const appPath = path.join(CWD, 'app')
 const cfgPath = path.join(CWD, 'config')
 const modPath = path.join(appPath, 'modules')
 
-// const appPath   = path.dirname(require.main.filename);
-// const modName   = path.basename(module.filename, '.js');
-// const modPath   = path.relative(appPath, path.dirname(module.filename));
-// const modsPath  = path.join(appPath, 'modules', path.sep);
-// const libsPath  = path.normalize(path.join(appPath, '..', 'lib', path.sep));
-// const confBase  = path.join(appPath, 'config');
-// const appPath   = path.dirname(require.main.filename);
-// const modName   = path.basename(module.filename, '.js');
-// const modPath   = path.relative(appPath, path.dirname(module.filename));
-// const modsPath  = path.join(appPath, 'modules', path.sep);
 const libsPath  = path.normalize(path.join(appPath, '..', 'lib', path.sep));
 const confBase  = path.join(appPath, 'config');
-// const Config    = require(confBase);
 const Config    = require(cfgPath);
 
 utin.defaultOptions = Object.assign({}, Config.get('iopts'));
 
-// const Abstract = require(path.join(libsPath, 'Abstract.class'));
 const Abstract = require(`${modPath}/Abstract.class`);
 
 
