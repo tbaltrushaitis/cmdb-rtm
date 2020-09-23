@@ -89,9 +89,9 @@ deploy:
 
 .PHONY: rebuild redeploy
 
-rebuild: build;
+rebuild: build ;
 
-redeploy: rebuild deploy;
+redeploy: rebuild deploy ;
 
 ##  ------------------------------------------------------------------------  ##
 
@@ -99,11 +99,11 @@ redeploy: rebuild deploy;
 #* means the word "all" doesn't represent a file name in this Makefile;
 #* means the Makefile has nothing to do with a file called "all" in the same directory.
 
-all: clean rights banner cycle;
+all: clean rights banner cycle ;
 
-full: clean-all all;
+full: clean-all all ;
 
-cycle: setup build deploy;
+cycle: setup build deploy ;
 
 dev: redeploy banner
 
