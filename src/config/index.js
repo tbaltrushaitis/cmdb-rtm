@@ -9,8 +9,7 @@
 'use strict';
 
 /**
- * DEPENDENCIES
- * @private
+ * @_DEPENDENCIES
  */
 
 const path  = require('path');
@@ -18,7 +17,7 @@ const nconf = require('nconf');
 
 
 /**
- * DECLARATION
+ * @_DECLARATION
  * @void
  */
 
@@ -30,11 +29,11 @@ nconf.file(path.join(__dirname, 'config.json'));
 //  Added flag --test-enabled to launch application in test environment
 nconf.argv({
   'test:enabled': {
-    alias:    'test-enabled',
-    describe: 'Launch application with --test flag enabled to set test environment.',
-    demand:   false,
-    type:     'boolean',
-    default:  false
+      alias:    'test-enabled'
+    , type:     'boolean'
+    , default:  false
+    , demand:   false
+    , describe: 'Launch application with --test flag enabled to set test environment.'
   }
 });
 
@@ -46,8 +45,13 @@ if (nconf.get('test:enabled') || (-1 !== process.argv[1].indexOf('mocha'))) {
 
 
 /**
- * EXPOSE
+ * @_EXPOSE
+ */
+exports = nconf;
+
+
+/**
+ * @_EXPORTS
  * @public
  */
-
-module.exports = exports = nconf;
+module.exports = exports;
