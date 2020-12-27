@@ -17,10 +17,16 @@ Real-time Tasks Progress Visualization
 Magic jump to [README] file
 
 ### [v0.0.3](https://github.com/tbaltrushaitis/cmdb-rtm/tree/master) ([Current]): ###
-- [x] npm i --save-dev autoprefixer@10.0.0
-- [x] npm i --save uuid@8.3.0
-- [x] bower i --save jquery@3.5.1 ionicons@5.0.0 font-awesome@5.14.0 animate.css@4.1.1 admin-lte@3.0.5
+- [x] bower i --save admin-lte@3.0.5
+- [x] bower i --save animate.css@4.1.1
+- [x] bower i --save font-awesome@5.15.1
+- [x] bower i --save ionicons@5.2.3
+- [x] bower i --save jquery@3.5.1
+- [x] bower i --save underscore@1.12.0
+- [x] npm i --save-dev autoprefixer@10.1.0
 - [x] npm i --save dotenv@8.2.0
+- [x] npm i --save nconf@0.11.0
+- [x] npm i --save uuid@8.3.2
 
 ### [v0.0.2](https://github.com/tbaltrushaitis/cmdb-rtm/tree/v0.0.2): ###
 - [x] Reorganization of DOCS;
