@@ -100,7 +100,7 @@ redeploy: rebuild deploy ;
 #* means the word "all" doesn't represent a file name in this Makefile;
 #* means the Makefile has nothing to do with a file called "all" in the same directory.
 
-all: clean rights banner cycle ;
+all: banner clean rights cycle ;
 
 full: clean-all all ;
 
