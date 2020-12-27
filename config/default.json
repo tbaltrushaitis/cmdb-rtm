@@ -1,0 +1,74 @@
+{
+    "__schema": "default.json"
+  , "__parent": "colors.json"
+  , "env":      "%{NODE_ENV}"
+  , "pref":     "cmdb"
+  , "app": {
+        "name":         "rtm"
+      , "title":        "CMDB-RTM"
+      , "owner":        "tbaltrushaitis"
+      , "description":  "Real-time Tasks Progress Visualization"
+    }
+  , "api": {
+        "port":     8084
+      , "name":     "cmdb-api"
+      , "title":    "API Endpoint"
+      , "host":     "45.58.43.19"
+      , "hostname": "api"
+      , "domain":   "api.@{pref}.horotest.com"
+      , "baseURL":  "/api"
+      , "path":     "/v1"
+      , "ssl":      false
+      , "salt":     "tDGMKnbr8ZIWAHu0Eofo8jLiMDsT8uPwExZnvdJfiFM69QPu69wlYLzBOaiuIqzE"
+    }
+  , "owner": {
+        "name":         "tbaltrushaitis"
+      , "title":        "TBaltrushaitis"
+      , "homepage":     "http://@{./title}.com"
+      , "description":  "Digital Product Agency"
+    }
+  , "tenant": {
+        "name":         "cmdb"
+      , "title":        "CMDB"
+      , "homepage":     "http://@{./title}.org"
+      , "description":  "Digital Services"
+    }
+  , "front": {
+      "URI": "cmdb-rtm.org"
+    }
+  , "mongoose": {
+        "useNewUrlParser":    true
+      , "useUnifiedTopology": true
+    }
+  , "express": {
+      "session": {
+        "salt": "8oohppZdMZqX5TumcqKwaUMF8H3nlyNb1nSncetbClDYpeoviqoCSzGMdiXVamcs"
+      }
+    }
+  , "login": {
+        "usernameField":    "email"
+      , "passwordField":    "password"
+      , "passReqToCallback": true
+    }
+  , "register": {
+        "usernameField":    "email"
+      , "passwordField":    "password"
+      , "passReqToCallback": true
+    }
+  , "iopts": {
+        "colors":     true
+      , "depth":      5
+      , "showHidden": false
+      , "showProxy":  true
+    }
+  , "readconf": {
+        "basedir":        null
+      , "replaceEnv":     "%"
+      , "replaceLocal":   "@"
+      , "override":       true
+      , "skipUnresolved": true
+    }
+  , "debugger": {
+      "port": 8229
+    }
+}

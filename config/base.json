@@ -1,0 +1,5 @@
+{
+    "__schema": "base.json"
+  , "__parent": "default.json"
+  , "env":      "%{NODE_ENV}"
+}
