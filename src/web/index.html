@@ -68,12 +68,14 @@
     <section id="tasks-stats" class="section content">
       <h3 class="text-success">Tasks Queue</h3>
       <div class="row">
-          <ul id="tasks-legend" class="list-unstyled hidden">
-            <li>Slow: <span id="tasks-slow"></span></li>
-            <li>Norm: <span id="tasks-norm"></span></li>
-            <li>Fast: <span id="tasks-fast"></span></li>
-            <li>TOTAL: <span id="tasks-total"></span></li>
+        <div class="col-xs-12 col-sm-4 col-lg-3">
+          <ul id="tasks-legend" class="list-unstyled hidden-0">
+            <li><strong>Slow:</strong> <span id="tasks-slow" class="pull-right"></span></li>
+            <li><strong>Norm:</strong> <span id="tasks-norm" class="pull-right"></span></li>
+            <li><strong>Fast:</strong> <span id="tasks-fast" class="pull-right"></span></li>
+            <li><strong>TOTAL:</strong> <span id="tasks-total" class="pull-right"></span></li>
           </ul>
+        </div>
       </div>
     </section>
 
@@ -106,44 +108,14 @@
 
   <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script> -->
   <script type="text/javascript" src="assets/js/lib/socket.io.js"></script>
+
   <script type="text/javascript" src="assets/js/app/progress.js"></script>
+  <script type="text/javascript" src="assets/js/app/io-client.js"></script>
 
   <script>
 
-    $(function () {
+    console.log('BODY SCRIPT LOADED');
 
-      let ioClient = io()
-        , aSpds    = ['total', 'fast', 'norm', 'slow']
-        , entries  = aSpds.map((x) => { return [[`${x}`], 0] })
-      ;
-      window.aStats = Object.fromEntries(entries);
-
-      // console.log(`entries (${typeof entries}):`, entries);
-      console.log(`[ioClient] window.aStats (${typeof window.aStats}):`, window.aStats);
-      console.log(`[ioClient] (${typeof ioClient}):`, ioClient);
-
-      ioClient.on('connect', () => {
-        console.info(`[ioClient] Connected to ioServer as: [${ioClient.id}]`);
-        $('#client-id').text( ioClient.id );
-      });
-
-      ioClient.on('disconnect', function () {
-        console.warn(`[ioClient] Disconnected from ioServer!`);
-      });
-
-      ioClient.on('message', function (job) {
-        // console.log(`[ioClient] RECV: message`);
-        $('#template').progressBar(job);
-      });
-
-      ioClient.on('progress', function (job) {
-        console.log(`[ioClient] RECV progress for [jobId:${job.id}]`);
-        $('#template').progressBar(job);
-      });
-
-      ioClient.connect();
-
-    });
   </script>
 
 </body>

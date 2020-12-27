@@ -11,7 +11,9 @@
 //  Reads configuration from .env file
 require('dotenv').config()
 
-/**   @_DEPENDENCIES    **/
+/**
+ * @_DEPENDENCIES
+ */
 const atob = require('atob')
 const path = require('path')
 const utin = require('util').inspect
@@ -27,6 +29,7 @@ const respTime      = require('response-time')
 const bodyParser    = require('body-parser')
 const compression   = require('compression')
 const cookieParser  = require('cookie-parser')
+const rc            = require('read-config')
 
 
 /**
@@ -41,9 +44,11 @@ const modPath = path.join(appPath, 'modules')
 const webPath = path.join(CWD, 'web')
 // const libPath = path.join(CWD, 'lib')
 
-const Config    = require(cfgPath)
+//  Base Application Config
+const Config = require(`${modPath}/Config`);
+let C = Config.colors;
 
-utin.defaultOptions = Object.assign({}, Config.get('iopts'))
+utin.defaultOptions = Object.assign({}, Config.iopts)
 
 const aSpd      = ['norm', 'fast', 'slow']
 const netErrors = ['EADDRINUSE', 'ECONNREFUSED', 'ECONNRESET']
@@ -77,7 +82,7 @@ const Job = class Job extends AbstractModule {
 
 
   run () {
-    console.log(`[${new Date().toISOString()}] START Job [${utin(this.id)}]`);
+    console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] START Job [${utin(this.id)}]`);
 
     let job = this;
     let rndJobSpeed = aSpd[parseInt(Math.floor(Math.random() * 3))];
@@ -89,7 +94,7 @@ const Job = class Job extends AbstractModule {
                   });
 
     jobRun.on('close', (code) => {
-      console.log(`[${new Date().toISOString()}] DONE Job [${utin(this.id)}]`);
+      console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] DONE Job [${utin(this.id)}]`);
     });
 
   }
@@ -106,11 +111,11 @@ let connections = {}
   , spawnTime   = Math.floor(Math.random() * 4000) + 1500
 ;
 
-console.log(`[${new Date().toISOString()}] [RAM:${utin(process.memoryUsage().rss)}] spawnTime: [${utin(spawnTime)}]`);
+console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] [RAM:${utin(process.memoryUsage().rss)}] spawnTime: [${utin(spawnTime)}]`);
 
 const App = express();
-App.set('port', Config.get('app:port') || process.env.PORT || 8084);
-App.set('host', Config.get('app:host') || process.env.HOST || '0.0.0.0');
+App.set('port', Config.app.port || process.env.PORT || 8084);
+App.set('host', Config.app.host || process.env.HOST || '0.0.0.0');
 App.set('trust proxy', 1);
 
 App.use(compression());
@@ -129,13 +134,13 @@ App.use('*', function (req, res, next) {
 
 //  Create http server
 const AppServer = http.createServer(App);
-
-const IoServer = require('socket.io')(AppServer);
+const IoServer  = require('socket.io')(AppServer);
 
 IoServer.on('connection', function (client) {
-  console.log(`[${new Date().toISOString()}] CONNECTED
-  User [${client.conn.id}]
-  From [${client.request.socket._peername.address}:${utin(client.request.socket._peername.port)}]
+
+  console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] ${C.Y}${C.OnG}CONNECTED${C.N}
+  User [${C.Cyan}${client.conn.id}${C.N}]
+  From [${C.White}${client.request.socket._peername.address}${C.N}:${utin(client.request.socket._peername.port)}]
   [ONLINE:${utin(client.conn.server.clientsCount)}]
 `);
 
@@ -148,9 +153,9 @@ IoServer.on('connection', function (client) {
   connections[client.conn.id] = client;
 
   client.on('disconnect', function () {
-    console.log(`[${new Date().toISOString()}] DISCONNECTED
-      User [${client.conn.id}]
-      From [${client.request.socket._peername.address}:${utin(client.request.socket._peername.port)}]
+    console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] ${C.Y}${C.OnBlue}DISCONNECTED${C.N}
+      User [${C.Cyan}${client.conn.id}${C.N}]
+      From [${C.White}${client.request.socket._peername.address}${C.N}:${utin(client.request.socket._peername.port)}]
       [ONLINE:${utin(client.conn.server.clientsCount)}]
     `);
     // by [${utin(Object.keys(client.conn.server))}]
@@ -213,7 +218,7 @@ App.post('/spawn', function (req, res) {
 
 AppServer.listen(App.get('port'), App.get('host'), function (err) {
   if (err) {
-    console.log(`[${new Date().toISOString()}] Error to listen:
+    console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] Error to listen:
   at [HOST:${utin(App.get('host'))}]
   of [NET:${utin(App.get('family'))}]
   on [PORT:${utin(App.get('port'))}]
@@ -221,7 +226,7 @@ AppServer.listen(App.get('port'), App.get('host'), function (err) {
   message: [${utin(err)}]
 `);
   } else {
-    console.log(`[${new Date().toISOString()}] HTTP Server is listening:
+    console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] HTTP Server is listening:
   at [HOST:${utin(AppServer.address().address)}]
   of [NET:${utin(AppServer.address().family)}]
   on [PORT:${utin(AppServer.address().port)}]
@@ -248,7 +253,7 @@ AppServer.listen(App.get('port'), App.get('host'), function (err) {
   }
 
   AppServer.on('close', function () {
-    console.log(`[${new Date().toISOString()}] HTTP Server STOP`);
+    console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] HTTP Server STOP`);
     clearInterval(spawnJobsInterval);
     process.exit();
   });
@@ -261,7 +266,7 @@ App.use(function (err, req, res, next) {
   const status = err.statusCode || 500;
 
   //  Log exception
-  console.log(`[${new Date().toISOString()}] Application server error [${utin(status)}] [${utin(err.message)}]:
+  console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] Application server error [${utin(status)}] [${utin(err.message)}]:
     stack: ${err.stack ? utin(err.stack) : 'N/A'}
   `);
 
@@ -289,15 +294,15 @@ process.on('uncaughtException', function (err) {
   // }
 
   let isNetError = /[netErrors.join('|')]/.test(err.message);
-  console.log(`[${new Date().toISOString()}][UncaughtException] isNetError = [${utin(isNetError)}]`);
+  console.log(`[${C.Gr}${new Date().toISOString()}${C.N}][UncaughtException] isNetError = [${utin(isNetError)}]`);
   if (isNetError) {
-    console.log(`[${new Date().toISOString()}] Catched [NETWORK] Error: [${utin(err.message)}]`);
-    console.log(`[${new Date().toISOString()}] Shutting down immediately`);
+    console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] Catched [NETWORK] Error: [${utin(err.message)}]`);
+    console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] Shutting down immediately`);
     process.exit();
   }
 
   // console.error(`[${new Date().toISOString()}][${Noty.pref}] UncaughtException [${err.message}]:`, {
-  console.log(`[${new Date().toISOString()}][UncaughtException] [${utin(err.message)}]:
+  console.log(`[${C.Gr}${new Date().toISOString()}${C.N}][UncaughtException] [${utin(err.message)}]:
     stack: ${err.stack ? utin(err) : 'N/A'}
   `);
   process.exit();
@@ -306,7 +311,7 @@ process.on('uncaughtException', function (err) {
 
 process.on('SIGINT', function (data) {
 
-  console.log(`[${new Date().toISOString()}] SIGINT received with [data] = [${utin(data)}]`);
+  console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] SIGINT received with [data] = [${utin(data)}]`);
   AppServer.close();
   process.exit();
 

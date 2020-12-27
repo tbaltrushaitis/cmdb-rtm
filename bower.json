@@ -1,6 +1,8 @@
-{   "name": "cmdb-rtm"
-  , "description": "CMDB - Real-time Tasks Progress Visualized Monitoring"
-  , "main": "server.js"
+{
+    "name":         "cmdb-rtm"
+  , "title":        "CMDB :: Real-time data Visualization"
+  , "description":  "CMDB - Real-time Tasks Progress Visualized Monitoring"
+  , "main":         "server.js"
   , "moduleType": [
         "amd"
       , "globals"

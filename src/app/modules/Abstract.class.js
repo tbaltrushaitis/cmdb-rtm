@@ -42,7 +42,7 @@ const modName   = path.basename(module.filename, '.js')
 const Config = require(cfgPath)
 // const c = require(path.join(libsPath, 'Utils')).c
 
-utin.defaultOptions = _.extend({}, Config.get('iopts'))
+utin.defaultOptions = Object.assign({}, Config.get('iopts'))
 
 
 /**
