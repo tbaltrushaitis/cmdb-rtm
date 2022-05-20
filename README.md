@@ -91,9 +91,6 @@ This product is [MIT Licensed][License]
  - [GitHub / Basic writing and formatting syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
  - [BitBucket Markdown Howto](https://bitbucket.org/tutorials/markdowndemo)
  - [Creating an Automated Build](https://docs.docker.com/docker-hub/builds/)
- - [Linking containers](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks.md)
- - [Cross-host linking containers](https://docs.docker.com/engine/admin/ambassador_pattern_linking.md)
- - [Linking containers](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks.md)
 
 ---
 
