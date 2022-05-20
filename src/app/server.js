@@ -82,7 +82,7 @@ const Job = class Job extends AbstractModule {
 
 
   run () {
-    console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] START Job [${utin(this.id)}]`);
+    console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] Job [${utin(this.id)}] START`);
 
     let job = this;
     let rndJobSpeed = aSpd[parseInt(Math.floor(Math.random() * 3))];
@@ -94,7 +94,7 @@ const Job = class Job extends AbstractModule {
                   });
 
     jobRun.on('close', (code) => {
-      console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] DONE Job [${utin(this.id)}]`);
+      console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] Job [${utin(this.id)}] DONE`);
     });
 
   }
@@ -114,8 +114,8 @@ let connections = {}
 console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] [RAM:${utin(process.memoryUsage().rss)}] spawnTime: [${utin(spawnTime)}]`);
 
 const App = express();
-App.set('port', Config.app.port || process.env.PORT || 8084);
-App.set('host', Config.app.host || process.env.HOST || '0.0.0.0');
+App.set('port', Config.app.port || process.env.APP_PORT || 8084);
+App.set('host', Config.app.host || process.env.APP_HOST || '0.0.0.0');
 App.set('trust proxy', 1);
 
 App.use(compression());
@@ -154,10 +154,9 @@ IoServer.on('connection', function (client) {
 
   client.on('disconnect', function () {
     console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] ${C.Y}${C.OnBlue}DISCONNECTED${C.N}
-      User [${C.Cyan}${client.conn.id}${C.N}]
-      From [${C.White}${client.request.socket._peername.address}${C.N}:${utin(client.request.socket._peername.port)}]
-      [ONLINE:${utin(client.conn.server.clientsCount)}]
-    `);
+  User [${C.Cyan}${client.conn.id}${C.N}]
+  From [${C.White}${client.request.socket._peername.address}${C.N}:${utin(client.request.socket._peername.port)}]
+  [ONLINE:${utin(client.conn.server.clientsCount)}]`);
     // by [${utin(Object.keys(client.conn.server))}]
     delete connections[client.conn.id];
   });
@@ -219,20 +218,20 @@ App.post('/spawn', function (req, res) {
 AppServer.listen(App.get('port'), App.get('host'), function (err) {
   if (err) {
     console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] Error to listen:
-  at [HOST:${utin(App.get('host'))}]
-  of [NET:${utin(App.get('family'))}]
+  at [HOST:${C.C}${App.get('host')}${C.N}]
+  of [NET:${C.W}${App.get('family')}${C.N}]
   on [PORT:${utin(App.get('port'))}]
-  in [MODE:${utin(App.settings.env)}]
-  message: [${utin(err)}]
+  in [MODE:${C.R}${App.settings.env}${C.N}]
+  Message: [${utin(err)}]
 `);
   } else {
     console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] HTTP Server is listening:
-  at [HOST:${utin(AppServer.address().address)}]
-  of [NET:${utin(AppServer.address().family)}]
+  at [HOST:${C.C}${AppServer.address().address}${C.N}]
+  of [NET:${C.W}${AppServer.address().family}${C.N}]
   on [PORT:${utin(AppServer.address().port)}]
-  in [MODE:${utin(App.settings.env)}]
-  and accessible by [URL:${utin(AppServer.address())}]
+  in [MODE:${C.R}${App.settings.env}${C.N}]
 `);
+// and accessible by [${utin(AppServer.address())}]
 
 
     //  ROOT OF ROUTING
@@ -255,7 +254,7 @@ AppServer.listen(App.get('port'), App.get('host'), function (err) {
   AppServer.on('close', function () {
     console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] HTTP Server STOP`);
     clearInterval(spawnJobsInterval);
-    process.exit();
+    // process.exit();
   });
 
 });
@@ -311,7 +310,9 @@ process.on('uncaughtException', function (err) {
 
 process.on('SIGINT', function (data) {
 
-  console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] SIGINT received with [data] = [${utin(data)}]`);
+  // console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] ${C.R}SIGINT${C.N} received with [data] = [${utin(data)}]`);
+  console.log(`\n`);
+  console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] ${C.R}SIGINT${C.N} received`);
   AppServer.close();
   process.exit();
 

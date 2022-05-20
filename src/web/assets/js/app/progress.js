@@ -1,20 +1,20 @@
 /*  web/assets/js/app/progress.js  */
 
 $.fn.progressBar = function (oJob) {
-  let Template      =   $(this)
-    , Container     =   '#tasks-monitor'
-    , ElTotal       =   $('#tasks-total')
-    , jobName       =   `${oJob.id}: JOB-${(oJob.speed).toUpperCase()}`
-    , selBar        =   '.progress-bar'
-    , selTask       =   '.progress-task'
-    , selData       =   '.progress-data'
-    , seltext       =   '.progress-text span'
-    , cssFontWhite  =   {color: '#fff', 'font-weight': '700'}
-    , classPrimary  =   'progress-bar-primary'
-    , classSuccess  =   'progress-bar-success'
-    , classWarning  =   'progress-bar-warning'
-    , classDanger   =   'progress-bar-danger'
-    , classAnimate  =   'rotateOutUpLeft'
+  let Template      = $(this)
+    , Container     = '#tasks-monitor'
+    , ElTotal       = $('#tasks-total')
+    , jobName       = `${oJob.id}: ${(oJob.speed).toUpperCase()}`
+    , selBar        = '.progress-bar'
+    , selTask       = '.progress-task'
+    , selData       = '.progress-data'
+    , seltext       = '.progress-text span'
+    , cssFontWhite  = {color: '#fff', 'font-weight': '700'}
+    , classPrimary  = 'progress-bar-primary'
+    , classSuccess  = 'progress-bar-success'
+    , classWarning  = 'progress-bar-warning'
+    , classDanger   = 'progress-bar-danger'
+    , classAnimate  = 'rotateOutUpLeft'
   ;
 
   $(`#job-${oJob.id}`).otherwise(function () {

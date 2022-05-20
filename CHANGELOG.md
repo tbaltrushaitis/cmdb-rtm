@@ -1,10 +1,10 @@
-[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
-[![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE)
-
 # CMDB-rtm #
 
 Real-time Tasks Progress Visualization
+
+[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
+<!--/ [![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm) /-->
+<!--/ [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE) /-->
 
 ![Real Time Jobs Progress View](assets/img/cmdb-rtm-poc-4-windows.gif)
 
@@ -14,9 +14,11 @@ Real-time Tasks Progress Visualization
 
 ## Change history ##
 
-Magic jump to [README] file
+### [v0.0.4](https://github.com/tbaltrushaitis/cmdb-rtm/tree/master) ([Current]): ###
+- [x] npm i lodash@4.17.21
+- [x] npm i nconf@0.12.0
 
-### [v0.0.3](https://github.com/tbaltrushaitis/cmdb-rtm/tree/master) ([Current]): ###
+### [v0.0.3](https://github.com/tbaltrushaitis/cmdb-rtm/tree/v0.0.3): ###
 - [x] bower i --save admin-lte@3.0.5
 - [x] bower i --save animate.css@4.1.1
 - [x] bower i --save font-awesome@5.15.1
@@ -47,6 +49,10 @@ This is the very first code release.
 ### [v0.0.0](#) (November 2016) ###
 - [x] Repository Init
 - [x] Initial commit and release
+
+---
+
+Magic jump to [README] file
 
 ---
 

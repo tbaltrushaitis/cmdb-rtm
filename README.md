@@ -3,23 +3,23 @@
 Real-time Tasks Progress Visualization
 
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
-[![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm)
-<!-- [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE.md) -->
+<!--/ [![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm) /-->
+<!--/ [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE.md) /-->
 
 ![Real Time Jobs Progress View](assets/img/cmdb-rtm-poc-4-windows.gif)
 
-`cmdb` `real-time` `tasks` `queue` `progress` `monitoring` `visualized` `data visualization`
+`cmdb` `real-time` `monitoring` `data visualization`
 
 ---
 
 ## Live Demo ##
 Try to open this [page](http://bit.ly/cmdb-rtm-live) :point_left: in:
 
-- [ ] :zero::zero: - **several tabs** of your current browser
+- :zero::zero: - **several tabs** of your current browser
  or
-- [x] :zero::five: - do it in **several different browsers**
+- :zero::five: - do it in **several different browsers**
  or
-- [x] :five::zero: - use **several different devices** to try from
+- :five::zero: - use **several different devices** to try from
 
 All data about tasks progress status will be shown as HTML elements with various
 (if there are any) animations. Live page can be viewed `simultaneously` on any
@@ -69,7 +69,7 @@ Then navigate your agent to :point_right: `http://localhost:8084/`
  Front | Library | [animate.css](http://daneden.github.io/animate.css/) | [3.7.2](https://github.com/daneden/animate.css/tree/3.7.2) | A cross-browser library of CSS animations
  Front | Framework | [Bootstrap](http://getbootstrap.com) | [3.4.1](https://getbootstrap.com/docs/3.4/) | HTML, CSS, and JS framework
  Front | Library | [jQuery](http://jquery.com/) | [3.4.1](https://github.com/jquery/jquery/tree/3.4.1) | JavaScript Library
- Front | Library | [Lodash](https://lodash.com/) | [4.17.15](https://lodash.com/docs/4.17.15) | A modern JavaScript utility library delivering modularity, performance & extras.
+ Front | Library | [Lodash](https://lodash.com/) | [4.17.21](https://lodash.com/docs/4.17.21) | A modern JavaScript utility library delivering modularity, performance & extras.
 
 ---
 
