@@ -16,33 +16,26 @@ require('dotenv').config();
  * @_DEPENDENCIES
  * @private
  */
-const fs        = require('fs');
-const path      = require('path');
-const utin      = require('util').inspect;
-const inherits  = require('util').inherits;
+const path  = require('path');
+const utin  = require('util').inspect;
 
-const _     = require('lodash');
-const md5   = require('md5');
-const uuid  = require('uuid').v4;
+const _ = require('lodash');
 
 
 /**
  * @_CONFIGURATION
  */
-
-let ME          = global.ME || {};
-const CWD       = process.cwd();
+let ME        = globalThis.ME || {};
+const CWD     = globalThis.CWD || process.cwd();
 const appPath = path.join(CWD, 'app')
 const cfgPath = path.join(CWD, 'config')
 const modPath = path.join(appPath, 'modules')
 
-const libsPath  = path.normalize(path.join(appPath, '..', 'lib', path.sep));
-const confBase  = path.join(appPath, 'config');
 const Config    = require(cfgPath);
+const Abstract  = require(`${modPath}/Abstract.class`);
 
 utin.defaultOptions = Object.assign({}, Config.get('iopts'));
 
-const Abstract = require(`${modPath}/Abstract.class`);
 
 
 /**
@@ -52,7 +45,7 @@ const Abstract = require(`${modPath}/Abstract.class`);
 const AbstractModule = class AbstractModule extends Abstract {
 
   /**
-   * CONSTRUCTOR
+   * @_CONSTRUCTOR
    * @special
    */
 
@@ -67,7 +60,7 @@ const AbstractModule = class AbstractModule extends Abstract {
     this.m._datas = [];
 
     /**
-     * EVENTS
+     * @_EVENTS
      * @prototype
      */
 
@@ -75,7 +68,7 @@ const AbstractModule = class AbstractModule extends Abstract {
 
 
   /**
-   * METHODS
+   * @_METHODS
    * @prototype
    */
 
@@ -185,5 +178,4 @@ exports = AbstractModule;
  * @_EXPORTS
  * @public
  */
-
 module.exports = exports;

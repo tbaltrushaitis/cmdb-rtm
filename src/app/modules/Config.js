@@ -1,11 +1,12 @@
 /**
-* @_Module modules/Config
-*/
+ * @_Module modules/Config
+ */
 
 'use strict';
 
 //  Reads configuration from .env file
 require('dotenv').config();
+
 
 /**
  * @_DEPENDENCIES
@@ -15,6 +16,7 @@ const path = require('path');
 
 const rc   = require('read-config');
 const { v4:uuid } = require('uuid');
+
 
 /**
  * @_CONFIGURATION
@@ -57,6 +59,7 @@ const Config = class Config {
   }
 
 };
+
 
 /**
  * @_EXPOSE

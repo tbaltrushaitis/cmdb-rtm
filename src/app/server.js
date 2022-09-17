@@ -11,6 +11,7 @@
 //  Reads configuration from .env file
 require('dotenv').config()
 
+
 /**
  * @_DEPENDENCIES
  */
@@ -19,7 +20,6 @@ const path = require('path')
 const utin = require('util').inspect
 
 const { spawn } = require('child_process')
-const EE        = require('events').EventEmitter
 
 const _             = require('lodash')
 const io            = require('socket.io')
@@ -39,9 +39,9 @@ let ME = {}
 
 const CWD     = process.cwd()
 const appPath = path.join(CWD, 'app')
-const cfgPath = path.join(CWD, 'config')
 const modPath = path.join(appPath, 'modules')
 const webPath = path.join(CWD, 'web')
+// const cfgPath = path.join(CWD, 'config')
 // const libPath = path.join(CWD, 'lib')
 
 //  Base Application Config
@@ -60,7 +60,6 @@ const AbstractModule = require(`${modPath}/Abstract.module`)
  * @_DECLARATION
  * @class
  */
-// const Job = class Job extends EE {
 const Job = class Job extends AbstractModule {
 
   /**
@@ -105,7 +104,6 @@ const Job = class Job extends AbstractModule {
 /**
  * @_MIDDLEWARES
  */
-
 let connections = {}
   , counter     = 0
   , spawnTime   = Math.floor(Math.random() * 4000) + 1500
@@ -134,7 +132,7 @@ App.use('*', function (req, res, next) {
 
 //  Create http server
 const AppServer = http.createServer(App);
-const IoServer  = require('socket.io')(AppServer);
+const IoServer  = io(AppServer);
 
 IoServer.on('connection', function (client) {
 

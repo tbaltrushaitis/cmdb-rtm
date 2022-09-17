@@ -1,12 +1,18 @@
-# CMDB-rtm #
+<p align="center">
+  <a href="https://github.com/conventional-changelog/standard-version"><img src="https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic" alt="Standard Version"></a>
+  <a href="https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License"></a>
+  <a href="https://github.com/tbaltrushaitis/cmdb-rtm/releases"><img src="https://img.shields.io/github/release/tbaltrushaitis/cmdb-rtm.svg?style=flat" alt="GitHub release"></a>
+</p>
 
-Real-time Tasks Progress Visualization
+<p align="center">
+  <h2 align="center">Real-time Tasks Progress Visualization</h2>
+</p>
 
-[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
-<!--/ [![Dependency Status](https://david-dm.org/tbaltrushaitis/cmdb-rtm.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cmdb-rtm) /-->
-<!--/ [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cmdb-rtm/blob/master/LICENSE.md) /-->
-
-![Real Time Jobs Progress View](assets/img/cmdb-rtm-poc-4-windows.gif)
+<p align="center">
+  <a href="http://bit.ly/cmdb-rtm-live?ref=readme">
+    <img src="assets/img/cmdb-rtm-poc-4-windows.gif" max-width="720px" max-height="571px" alt="Real Time Jobs Progress View" />
+  </a>
+</p>
 
 `cmdb` `real-time` `monitoring` `data visualization`
 
@@ -66,9 +72,9 @@ Then navigate your agent to :point_right: `http://localhost:8084/`
 
  Scope | Role | Name | Version | Description
 :-----:|:----:|:-----|:-------:|:------------
- Front | Library | [animate.css](http://daneden.github.io/animate.css/) | [3.7.2](https://github.com/daneden/animate.css/tree/3.7.2) | A cross-browser library of CSS animations
+ Front | Library | [animate.css](http://daneden.github.io/animate.css/) | [4.1.1](https://github.com/daneden/animate.css/tree/v4.1.1) | A cross-browser library of CSS animations
  Front | Framework | [Bootstrap](http://getbootstrap.com) | [3.4.1](https://getbootstrap.com/docs/3.4/) | HTML, CSS, and JS framework
- Front | Library | [jQuery](http://jquery.com/) | [3.4.1](https://github.com/jquery/jquery/tree/3.4.1) | JavaScript Library
+ Front | Library | [jQuery](http://jquery.com/) | [3.5.1](https://github.com/jquery/jquery/tree/3.5.1) | JavaScript Library
  Front | Library | [Lodash](https://lodash.com/) | [4.17.21](https://lodash.com/docs/4.17.21) | A modern JavaScript utility library delivering modularity, performance & extras.
 
 ---
@@ -78,7 +84,7 @@ Then navigate your agent to :point_right: `http://localhost:8084/`
 - [ ] Implement business logic within a real ES6 Class instances
 - [x] ~~Create repository~~ (Done v0.0.0)
 
-See the [Changelog][Changelog] for the history of project changes and improvements.
+See the [Changelog][Changelog] for the history of the project changes and improvements.
 
 ---
 

@@ -3,6 +3,27 @@
   , "title":        "CMDB :: Real-time data Visualization"
   , "description":  "CMDB - Real-time Tasks Progress Visualized Monitoring"
   , "main":         "server.js"
+  , "dependencies": {
+        "animate.css":  "4.1.1"
+      , "bootstrap":    "3.4.1"
+      , "font-awesome": "5.14.0"
+      , "jquery":       "3.6.1"
+      , "jquery-tmpl":  "*"
+      , "lodash":       "4.17.21"
+      , "noty":         "2.4.1"
+      , "requirejs":    "2.3.6"
+      , "socket.io":    "2.3.0"
+      , "text":         "2.0.16"
+    }
+  , "devDependencies": {}
+  , "dependenciesDisabled": {
+        "admin-lte":    "~3.0.5"
+      , "backbone":     "~1.4.0"
+      , "ionicons":     "~5.0.0"
+      , "jquery-ui":    "~1.12.1"
+      , "use-amd":      "~0.4.0"
+      , "wdt-loading":  "~0.1.0"
+    }
   , "moduleType": [
         "amd"
       , "globals"
@@ -10,38 +31,9 @@
   , "authors": [
       "tbaltrushaitis@github.com"
     ]
-  , "license": "MIT"
-  , "homepage": "https://github.com/tbaltrushaitis"
-  , "private": true
-  , "ignore": [
-        "**/.*"
-      , "etc"
-      , "node_modules"
-      , "bower_modules"
-      , "test"
-      , "tests"
-      , "build"
-    ]
-  , "dependencies": {
-        "admin-lte":    "~3.0.5"
-      , "animate.css":  "~4.1.1"
-      , "backbone":     "~1.4.0"
-      , "bootstrap":    "~3.4.1"
-      , "font-awesome": "~5.14.0"
-      , "ionicons":     "~5.0.0"
-      , "jquery":       "~3.5.1"
-      , "jquery-ui":    "~1.12.1"
-      , "jquery-tmpl":  "*"
-      , "lodash":       "^4.17.15"
-      , "noty":         "~2.4.1"
-      , "requirejs":    "~2.3.6"
-      , "socket.io":    "~2.3.0"
-      , "text":         "~2.0.16"
-      , "use-amd":      "~0.4.0"
-      , "wdt-loading":  "~0.1.0"
-    }
-  , "devDependencies": {}
-  , "dependenciesDisabled": {}
+  , "homepage": "https://github.com/tbaltrushaitis/cmdb-rtm"
+  , "private":  true
+  , "license":  "MIT"
   , "keywords": [
         "rtm"
       , "data visualization"
@@ -51,5 +43,14 @@
       , "real time graphs"
       , "real time graphics"
       , "real time visalization"
+    ]
+  , "ignore": [
+        "**/.*"
+      , "etc"
+      , "node_modules"
+      , "bower_modules"
+      , "test"
+      , "tests"
+      , "build"
     ]
 }

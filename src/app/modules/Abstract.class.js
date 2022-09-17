@@ -8,16 +8,15 @@
 
 'use strict';
 
+
 /**
  * @_DEPENDENCIES
  * @private
  */
-
-const fs        = require('fs')
-const path      = require('path')
-const utin      = require('util').inspect
-const inherits  = require('util').inherits
-const EE        = require('events').EventEmitter
+const fs    = require('fs')
+const path  = require('path')
+const utin  = require('util').inspect
+const EE    = require('events').EventEmitter
 
 const _     = require('lodash')
 const md5   = require('md5')
@@ -27,20 +26,16 @@ const uuid  = require('uuid').v4
 /**
  * @_CONFIGURATION
  */
-
 let ME = {}
 
-const CWD     = process.cwd()
+const CWD     = globalThis.CWD || process.cwd()
 const appPath = path.join(CWD, 'app')
 const cfgPath = path.join(CWD, 'config')
 const modPath = path.join(appPath, 'modules')
 const webPath = path.join(CWD, 'web')
-
-// const appPath   = path.dirname(require.main.filename)
-const modName   = path.basename(module.filename, '.js')
+const modName = path.basename(module.filename, '.js')
 
 const Config = require(cfgPath)
-// const c = require(path.join(libsPath, 'Utils')).c
 
 utin.defaultOptions = Object.assign({}, Config.get('iopts'))
 
@@ -52,7 +47,7 @@ utin.defaultOptions = Object.assign({}, Config.get('iopts'))
 const Abstract = class Abstract extends EE {
 
   /**
-   * CONSTRUCTOR
+   * @_CONSTRUCTOR
    * @special
    */
 
@@ -132,7 +127,7 @@ const Abstract = class Abstract extends EE {
 
 
   /**
-   * METHODS
+   * @_METHODS
    * @prototype
    */
 
