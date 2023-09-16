@@ -40,8 +40,8 @@ EQUALS = =
 
 ##  ========================================================================  ##
 # $(shell [ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV "./";) ;
-$(shell if [ ! -f ./.env ] 2>/dev/null; then cp -prv src/.env ./ ; fi;) ;
-$(shell if [ ! -f ./.bowerrc ] 2>/dev/null; then cp -prv config/.bowerrc ./ ; fi;) ;
+$(shell if [ ! -f ./.env ] 2>/dev/null; then cp -prv src/.env ./ ; fi;)
+$(shell if [ ! -f ./.bowerrc ] 2>/dev/null; then cp -prv config/.bowerrc ./ ; fi;)
 
 ##  ------------------------------------------------------------------------  ##
 APP_NAME := cmdb-rtm
