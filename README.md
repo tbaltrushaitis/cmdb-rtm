@@ -70,7 +70,7 @@ Now, open any preferred web browser and visit :point_right: `http://localhost:80
 
 - [x] Output like this should appear in the terminal:
 
-![Run Application Server](assets/img/user-connected-002.png)
+![User connected notification](assets/img/user-connected-002.png)
 
 ---
 
