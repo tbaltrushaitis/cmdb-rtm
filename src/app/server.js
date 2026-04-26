@@ -6,10 +6,16 @@
  * Created: 2017-12-31
  */
 
-'use strict';
+'use strict'
 
 //  Reads configuration from .env file
-require('dotenv').config()
+require('dotenv').config({
+    path: [
+        '.env'
+      , '.env.local'
+    ]
+  , quiet: true
+})
 
 
 /**
@@ -109,7 +115,10 @@ let connections = {}
   , spawnTime   = Math.floor(Math.random() * 4000) + 1500
 ;
 
-console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] [RAM:${utin(process.memoryUsage().rss)}] spawnTime: [${utin(spawnTime)}]`);
+console.log(`[${C.Gr}${new Date().toISOString()}${C.N}] \
+[RAM:${utin(process.memoryUsage().rss)}] \
+spawnTime: [${utin(spawnTime)}]\
+`);
 
 const App = express();
 App.set('port', Config.app.port || process.env.APP_PORT || 8084);
@@ -118,13 +127,13 @@ App.set('trust proxy', 1);
 
 App.use(compression());
 App.use(respTime({digits: 3}));
-App.use(express.query());
+// App.use(express.query());
 App.use(cookieParser());
 App.use(bodyParser.urlencoded({extended: false}));
 
 
 //  LOG ALL REQUESTS
-App.use('*', function (req, res, next) {
+App.use(function (req, res, next) {
   // console.log(`[${new Date().toISOString()}] RECV [${req.method} ${req.url}] [${req.path}] from [${req.ip}]`);
   next();
 });

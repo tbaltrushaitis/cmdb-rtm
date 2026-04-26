@@ -10,7 +10,7 @@ THIS_FILE := $(lastword $(MAKEFILE_LIST))
 ##                                Build Project                               ##
 ##  ------------------------------------------------------------------------  ##
 ##  Suppress display of executed commands
-$(VERBOSE).SILENT:
+# $(VERBOSE).SILENT:
 
 .EXPORT_ALL_VARIABLES:
 .IGNORE:
@@ -21,7 +21,7 @@ $(VERBOSE).SILENT:
 ##  ========================================================================  ##
 
 # The shell in which to execute make rules
-SHELL = /bin/bash
+SHELL = /usr/bin/bash
 
 # The CMake executable
 CMAKE_COMMAND = /usr/bin/cmake

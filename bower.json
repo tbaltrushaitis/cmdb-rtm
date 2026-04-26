@@ -1,18 +1,18 @@
 {
     "name":         "cmdb-rtm"
   , "title":        "CMDB :: Real-time data Visualization"
-  , "description":  "CMDB - Real-time Tasks Progress Visualized Monitoring"
+  , "description":  "Real-time Tasks Progress Visualized Monitoring"
   , "main":         "server.js"
   , "dependencies": {
         "animate.css":  "4.1.1"
       , "bootstrap":    "3.4.1"
       , "font-awesome": "5.14.0"
-      , "jquery":       "3.6.1"
+      , "jquery":       "3.7.1"
       , "jquery-tmpl":  "*"
-      , "lodash":       "4.17.21"
+      , "lodash":       "4.17.23"
       , "noty":         "2.4.1"
-      , "requirejs":    "2.3.6"
-      , "socket.io":    "2.3.0"
+      , "requirejs":    "2.3.8"
+      , "socket.io":    "2.5.1"
       , "text":         "2.0.16"
     }
   , "devDependencies": {}

@@ -2,20 +2,26 @@
  * @_Module modules/Config
  */
 
-'use strict';
+'use strict'
 
 //  Reads configuration from .env file
-require('dotenv').config();
+require('dotenv').config({
+    path: [
+        '.env'
+      , '.env.local'
+    ]
+  , quiet: true
+})
 
 
 /**
  * @_DEPENDENCIES
  */
-const fs   = require('fs');
-const path = require('path');
+const fs   = require('fs')
+const path = require('path')
 
-const rc   = require('read-config');
-const { v4:uuid } = require('uuid');
+const rc   = require('read-config')
+const { v4:uuid } = require('uuid')
 
 
 /**
@@ -52,7 +58,6 @@ const Config = class Config {
 
     this._config = Object.assign({}, ConfigDef, ConfigEnv, defs || {});
   }
-
 
   get Config () {
     return this._config;
