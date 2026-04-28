@@ -22,7 +22,10 @@
 ## Change history
 
 ### [v0.0.4](https://github.com/tbaltrushaitis/cmdb-rtm/tree/master) ([Current]):
+- [x] Update README and add new images
 - [x] Fixed `path` parameter in `App.use()` function call
+- [x] Added npm and NVM resource files - *.npmrc*, *.nvmrc*
+- [x] Update dependencies and improve look & feel
 - [x] bower i --save jquery@3.7.1
 - [x] bower i --save lodash@4.17.23
 - [x] bower i --save requirejs@2.3.8
