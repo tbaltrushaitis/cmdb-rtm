@@ -21,7 +21,7 @@ THIS_FILE := $(lastword $(MAKEFILE_LIST))
 ##  ========================================================================  ##
 
 # The shell in which to execute make rules
-SHELL = /usr/bin/bash
+SHELL = /usr/bin/sh
 
 # The CMake executable
 CMAKE_COMMAND = /usr/bin/cmake
@@ -40,8 +40,8 @@ EQUALS = =
 
 ##  ========================================================================  ##
 # $(shell [ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV "./";) ;
-$(shell if [ ! -f ./.env ] 2>/dev/null; then cp -prv src/.env ./ ; fi;)
-$(shell if [ ! -f ./.bowerrc ] 2>/dev/null; then cp -prv config/.bowerrc ./ ; fi;)
+$(shell if [ ! -f ./.env ] 2>/dev/null; then cp -prv src/.env ./ ; fi;) ;
+$(shell if [ ! -f ./.bowerrc ] 2>/dev/null; then cp -prv config/.bowerrc ./ ; fi;) ;
 
 ##  ------------------------------------------------------------------------  ##
 APP_NAME := cmdb-rtm
@@ -100,7 +100,7 @@ DIR_DIST := $(WD)/dist-${CODE_VERSION}
 DIR_COMMIT := $(GIT_COMMIT)
 DIR_WEB := $(WD)/web
 
-APP_DIRS := $(addprefix ${WD}/,build-* dist-* web)
+APP_DIRS := $(addprefix ${WD}/,build-* dist-* web log)
 
 
 ##  ------------------------------------------------------------------------  ##
@@ -148,7 +148,6 @@ deploy: banner ;
 	&& sudo chmod a+x app/bin/*.sh ;
 
 ##  ------------------------------------------------------------------------  ##
-# .PHONY: rebuild redeploy
 PHONY += rebuild redeploy
 
 rebuild: build ;
@@ -156,7 +155,6 @@ rebuild: build ;
 redeploy: rebuild deploy ;
 
 ##  ------------------------------------------------------------------------  ##
-# .PHONY: all full cycle dev
 PHONY += all full cycle dev
 #* means the word "all" doesn't represent a file name in this Makefile;
 #* means the Makefile has nothing to do with a file called "all" in the same directory.
